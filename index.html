@@ -424,31 +424,20 @@ main.visible{opacity:1}
 
 /* photo side */
 .proj-photos{position:relative;overflow:hidden;min-height:190px;max-height:210px;align-self:center;margin:14px 0 14px 14px;border-radius:12px;flex-shrink:0}
-.photo-track{display:flex;height:100%;transition:transform .45s cubic-bezier(.25,1,.5,1)}
-.photo-slide{
-  min-width:100%;height:100%;flex-shrink:0;
-  background-size:cover;
-  background-position:center top;
-  background-repeat:no-repeat;
-  filter:saturate(.8) contrast(1.06) brightness(.95);
-  transition:transform .55s ease,filter .4s;
-  position:relative;overflow:hidden;
-}
-.photo-slide img{
+.proj-photos img{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center top;
   display:block;
   filter:saturate(.8) contrast(1.06) brightness(.95);
   transition:transform .55s ease,filter .4s;
 }
-.proj-card.card-visible:hover .photo-slide img{transform:scale(1.06);filter:saturate(1) contrast(1.08) brightness(1)}
+.proj-card.card-visible:hover .proj-photos img{transform:scale(1.06);filter:saturate(1) contrast(1.08) brightness(1)}
 /* Fallback placeholder for missing images */
-.photo-slide[data-fallback="true"]{
+.proj-photos[data-fallback="true"]{
   background-color:var(--v1);
-  background-image:none !important;
   display:flex;align-items:center;justify-content:center;
 }
-.photo-slide[data-fallback="true"]::after{
+.proj-photos[data-fallback="true"]::after{
   content:attr(data-title);
   font-family:'Bebas Neue',sans-serif;
   font-size:22px;
@@ -457,15 +446,7 @@ main.visible{opacity:1}
   text-align:center;
   padding:0 20px;
 }
-.proj-card.card-visible:hover .photo-slide{transform:scale(1.06);filter:saturate(1) contrast(1.08) brightness(1)}
-.photo-nav-arrows{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 7px;z-index:5;pointer-events:none}
-.photo-arr{width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:12px;cursor:none;display:flex;align-items:center;justify-content:center;pointer-events:all;opacity:0;transition:opacity .25s,background .2s;backdrop-filter:blur(4px)}
-.proj-card.card-visible:hover .photo-arr{opacity:1}
-.photo-arr:hover{background:rgba(0,0,0,.6)}
-.photo-dots-nav{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:4px;z-index:5}
-.photo-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);cursor:none;border:none;transition:background .2s,transform .2s}
-.photo-dot.active{background:#fff;transform:scale(1.3)}
-.photo-count{position:absolute;top:8px;right:8px;font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(255,255,255,.85);letter-spacing:.1em;background:rgba(0,0,0,.3);padding:2px 7px;border-radius:100px;z-index:5;backdrop-filter:blur(4px)}
+
 
 .proj-info{padding:24px 26px;display:flex;flex-direction:column;justify-content:center}
 .proj-type-tag{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.25em;text-transform:uppercase;padding:4px 11px;border-radius:100px;width:fit-content;margin-bottom:10px;font-weight:500;border:1px solid}
@@ -832,17 +813,11 @@ footer::before{content:'';position:absolute;top:0;left:20%;width:60%;height:2px;
 
     <!-- Portfolio site — NOUVEAU PROJET (gold card) -->
     <div class="proj-card pcard-gold" data-type="design" data-img="">
-      <div class="proj-photos">
-        <div class="photo-track">
-          <div class="photo-slide" style="background:linear-gradient(135deg,#070B33,#0D1450);display:flex;align-items:center;justify-content:center;">
-            <svg width="100" height="60" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <text x="50" y="38" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="28" fill="rgba(255,163,92,0.6)" letter-spacing="4">PORTFOLIO</text>
-              <line x1="10" y1="45" x2="90" y2="45" stroke="rgba(255,163,92,0.3)" stroke-width="0.5"/>
-            </svg>
-          </div>
-        </div>
-        <span class="photo-count">01/01</span>
-        <div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div>
+      <div class="proj-photos" style="background:linear-gradient(135deg,#070B33,#0D1450);display:flex;align-items:center;justify-content:center;">
+        <svg width="100" height="60" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="50" y="38" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="28" fill="rgba(255,163,92,0.6)" letter-spacing="4">PORTFOLIO</text>
+          <line x1="10" y1="45" x2="90" y2="45" stroke="rgba(255,163,92,0.3)" stroke-width="0.5"/>
+        </svg>
       </div>
       <div class="proj-info">
         <span class="proj-type-tag">Design · Dev Web</span>
@@ -862,78 +837,83 @@ footer::before{content:'';position:absolute;top:0;left:20%;width:60%;height:2px;
     </div>
 
     <div class="proj-card pcard-v1" data-type="data" data-img="images/ANALYSE.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="Dashboard Ventes"><img src="images/ANALYSE.jpg" alt="Dashboard Ventes"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="Dashboard Ventes"><img src="images/ANALYSE.jpg" alt="Dashboard Ventes"></div>
       <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Dashboard<br>Ventes & KPIs</h3><p class="proj-desc-short">Power BI : CA, marge, taux de conversion. Connecté à MySQL avec refresh automatique.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">MySQL</span><span class="proj-tech-pill">DAX</span><span class="proj-tech-pill">ETL</span></div><div class="proj-links"><a href="https://app.powerbi.com/links/ylkg3xzTwq?ctid=1a4c85f2-2be9-420f-808c-e7effb38377f&pbi_source=linkShare" class="proj-link main" target="_blank"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/agadata_analysePlantes" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v2" data-type="data" data-img="images/youtube.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="YouTube Analytics"><img src="images/youtube.jpg" alt="YouTube Analytics"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="YouTube Analytics"><img src="images/youtube.jpg" alt="YouTube Analytics"></div>
       <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">YouTube<br>Analytics</h3><p class="proj-desc-short">Pipeline extrayant 2 222 vidéos via l'API YouTube Data v3. Dashboard Power BI interactif.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">YouTube API</span><span class="proj-tech-pill">Pandas</span><span class="proj-tech-pill">Power BI</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/YOUTUBE" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v3" data-type="data" data-img="images/RHDASHBOARD.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="Analyse RH"><img src="images/RHDASHBOARD.jpg" alt="Analyse RH"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="Analyse RH"><img src="images/RHDASHBOARD.jpg" alt="Analyse RH"></div>
       <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Analyse RH<br>& Turnover</h3><p class="proj-desc-short">Tableau de bord RH : attrition, satisfaction, pyramide des âges, prédiction ML.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">DAX</span></div><div class="proj-links"><a href="https://app.powerbi.com/links/FsNu5p_Om0?ctid=1a4c85f2-2be9-420f-808c-e7effb38377f&pbi_source=linkShare" class="proj-link main" target="_blank"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/advanced-hr" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v4" data-type="data" data-img="images/NETFLIX.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="Netflix Catalogue"><img src="images/NETFLIX.jpg" alt="Netflix Catalogue"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="Netflix Catalogue"><img src="images/NETFLIX.jpg" alt="Netflix Catalogue"></div>
       <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Catalogue<br>Netflix</h3><p class="proj-desc-short">Tendances films/séries, top genres, pays de production, évolution 2011–2021.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">Pandas</span><span class="proj-tech-pill">Matplotlib</span><span class="proj-tech-pill">Power BI</span></div><div class="proj-links"><a href="https://app.powerbi.com/links/v5Zi98a6gq?ctid=1a4c85f2-2be9-420f-808c-e7effb38377f&pbi_source=linkShare" class="proj-link main" target="_blank"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/PYTHON_NETFLIX" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v5" data-type="data" data-img="images/tableau.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="Sales Analytics"><img src="images/tableau.jpg" alt="Sales Analytics"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="Sales Analytics"><img src="images/tableau.jpg" alt="Sales Analytics"></div>
       <div class="proj-info"><span class="proj-type-tag">Data Viz</span><h3 class="proj-title-big">Sales &<br>Customer Analytics</h3><p class="proj-desc-short">KPI dynamiques YoY, segmentation LOD avancée, navigation Sales ↔ Customer.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Tableau</span><span class="proj-tech-pill">LOD</span><span class="proj-tech-pill">Data Viz</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/brief2_customers_sales_dashboard" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v1" data-type="data" data-img="images/campagnes.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="Marketing Digital"><img src="images/campagnes.jpg" alt="Marketing Digital"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="Marketing Digital"><img src="images/campagnes.jpg" alt="Marketing Digital"></div>
       <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Dashboard<br>Marketing Digital</h3><p class="proj-desc-short">ROI par source, entonnoir de conversion, segmentation géo et recommandations budget.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">SQL</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/campagnes-marketing" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v2" data-type="dev" data-img="images/digilion.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="SaaS RDV"><img src="images/digilion.jpg" alt="SaaS RDV"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="SaaS RDV"><img src="images/digilion.jpg" alt="SaaS RDV"></div>
       <div class="proj-info"><span class="proj-type-tag">Dev Web</span><h3 class="proj-title-big">SaaS Prise de<br>Rendez-vous</h3><p class="proj-desc-short">Application SaaS complète : réservation en ligne, créneaux, notifications, admin.</p><div class="proj-tech-pills"><span class="proj-tech-pill">React</span><span class="proj-tech-pill">Node.js</span><span class="proj-tech-pill">Express</span><span class="proj-tech-pill">MySQL</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v3" data-type="dev" data-img="images/oasis.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="Gestion Hôtel"><img src="images/oasis.jpg" alt="Gestion Hôtel"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="Gestion Hôtel"><img src="images/oasis.jpg" alt="Gestion Hôtel"></div>
       <div class="proj-info"><span class="proj-type-tag">Dev Web</span><h3 class="proj-title-big">Gestion Hôtel<br>— Web App</h3><p class="proj-desc-short">Gestion des réservations, chambres et services avec tableau de bord en temps réel.</p><div class="proj-tech-pills"><span class="proj-tech-pill">HTML/CSS</span><span class="proj-tech-pill">PHP</span><span class="proj-tech-pill">MySQL</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v4" data-type="dev" data-img="images/focus.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="E-commerce"><img src="images/focus.jpg" alt="E-commerce"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="E-commerce"><img src="images/focus.jpg" alt="E-commerce"></div>
       <div class="proj-info"><span class="proj-type-tag">Dev Web</span><h3 class="proj-title-big">Plateforme<br>E-commerce</h3><p class="proj-desc-short">Vente en ligne avec gestion produits, panier et paiement sécurisé intégré.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Vue.js</span><span class="proj-tech-pill">PHP</span><span class="proj-tech-pill">MySQL</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v5" data-type="dev" data-img="images/game.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="Jeu Mobile"><img src="images/game.jpg" alt="Jeu Mobile"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="Jeu Mobile"><img src="images/game.jpg" alt="Jeu Mobile"></div>
       <div class="proj-info"><span class="proj-type-tag">Dev Mobile</span><h3 class="proj-title-big">Jeu de Réflexion<br>Algorithmique</h3><p class="proj-desc-short">Jeu mobile interactif : défis algorithmiques progressifs pour améliorer la logique.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Ionic</span><span class="proj-tech-pill">React</span><span class="proj-tech-pill">JavaScript</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v1" data-type="dev" data-img="images/estm.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="Visite 360°"><img src="images/estm.jpg" alt="Visite 360°"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="Visite 360°"><img src="images/estm.jpg" alt="Visite 360°"></div>
       <div class="proj-info"><span class="proj-type-tag">Dev 3D</span><h3 class="proj-title-big">Visite Virtuelle<br>360° ESTM</h3><p class="proj-desc-short">Visite immersive de l'ESTM avec navigation interactive — modélisation 3DS Max.</p><div class="proj-tech-pills"><span class="proj-tech-pill">3DS Max</span><span class="proj-tech-pill">Web 360°</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v2" data-type="data" data-img="images/EXCEL.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="Dashboard Excel"><img src="images/EXCEL.jpg" alt="Dashboard Excel"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
+      <div class="proj-photos" data-title="Dashboard Excel"><img src="images/EXCEL.jpg" alt="Dashboard Excel"></div>
       <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Dashboard<br>Ventes Excel</h3><p class="proj-desc-short">Dashboard Excel avec Power Query et TCD pour suivre ventes, CA et performances.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Excel</span><span class="proj-tech-pill">Power Query</span><span class="proj-tech-pill">TCD</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/brief-excel" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
 
     <div class="proj-card pcard-v3" data-type="design" data-img="images/qhiwa.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="QHIWA"><img src="images/qhiwa.jpg" alt="QHIWA — Coffee Brand Identity"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
-      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">QHIWA<br>Coffee Brand</h3><p class="proj-desc-short">Identité premium et minimaliste inspirée de la culture des cafés marocains — logo, palette, menu, packaging.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Strategy</span><span class="proj-tech-pill">Logo Design</span><span class="proj-tech-pill">Packaging</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
+      <div class="proj-photos" data-title="QHIWA"><img src="images/QHIWA/" alt="QHIWA — Coffee Brand Identity"></div>
+      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">QHIWA<br>Coffee Brand</h3><p class="proj-desc-short">Identité premium et minimaliste inspirée de la culture des cafés marocains — logo, palette, menu, packaging.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Strategy</span><span class="proj-tech-pill">Logo Design</span><span class="proj-tech-pill">Packaging</span></div><div class="proj-links"><a href="qhiwa.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
     </div>
 
     <div class="proj-card pcard-v4" data-type="design" data-img="images/flourlab.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="FLOUR LAB"><img src="images/flourlab.jpg" alt="Flour Lab — Artisan Bakery Branding"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
-      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">Flour Lab<br>Bakery Brand</h3><p class="proj-desc-short">Identité éditoriale : typographie vintage, mise en page minimaliste, packaging et affiches vitrine.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Identity</span><span class="proj-tech-pill">Packaging</span><span class="proj-tech-pill">Print Ads</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
+      <div class="proj-photos" data-title="FLOUR LAB"><img src="images/FLOORLAB/1.png" alt="Flour Lab — Artisan Bakery Branding"></div>
+      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">Flour Lab<br>Bakery Brand</h3><p class="proj-desc-short">Identité éditoriale : typographie vintage, mise en page minimaliste, packaging et affiches vitrine.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Identity</span><span class="proj-tech-pill">Packaging</span><span class="proj-tech-pill">Print Ads</span></div><div class="proj-links"><a href="flourlab.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
     </div>
 
     <div class="proj-card pcard-v5" data-type="design" data-img="images/elara.jpg">
-      <div class="proj-photos"><div class="photo-track"><div class="photo-slide" data-title="ELARA"><img src="images/elara.jpg" alt="ELARA — Premium Beauty Brand"></div></div><span class="photo-count">01/01</span><div class="photo-nav-arrows"><button class="photo-arr">&#8249;</button><button class="photo-arr">&#8250;</button></div></div>
-      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">ELARA<br>Beauty Brand</h3><p class="proj-desc-short">Identité luxueuse et féminine — ivoire chaud, rose élégant, bordeaux profond pour le skincare premium.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Art Direction</span><span class="proj-tech-pill">Typography</span><span class="proj-tech-pill">Packaging</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
+      <div class="proj-photos" data-title="ELARA"><img src="images/ELARA/logopic.png" alt="ELARA — Premium Beauty Brand"></div>
+      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">ELARA<br>Beauty Brand</h3><p class="proj-desc-short">Identité luxueuse et féminine — ivoire chaud, rose élégant, bordeaux profond pour le skincare premium.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Art Direction</span><span class="proj-tech-pill">Typography</span><span class="proj-tech-pill">Packaging</span></div><div class="proj-links"><a href="elara.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
+    </div>
+
+    <div class="proj-card pcard-v1" data-type="design" data-img="images/northafricasurf.jpg">
+      <div class="proj-photos" data-title="North Africa Surf"><img src="images/northafrica/LOGOPIC.png" alt="North Africa Surf — Surf Lifestyle Brand"></div>
+      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">North Africa<br>Surf</h3><p class="proj-desc-short">Identité surf minimaliste et côtière inspirée de l'Atlantique marocain — packaging, signalétique et social media.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Identity</span><span class="proj-tech-pill">Packaging</span><span class="proj-tech-pill">Signage</span></div><div class="proj-links"><a href="northafricasurf.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
     </div>
 
   </div>
@@ -1078,32 +1058,17 @@ window.addEventListener('scroll',()=>{
 })();
 
 /* ══ IMAGE FALLBACK — check si les images <img> se chargent ══ */
-document.querySelectorAll('.photo-slide img').forEach(img=>{
+document.querySelectorAll('.proj-photos img').forEach(img=>{
   img.addEventListener('error',function(){
-    const slide=this.closest('.photo-slide');
-    if(!slide||slide.dataset.fallback==='true') return;
-    slide.dataset.fallback='true';
-    const card=slide.closest('.proj-card');
+    const photo=this.closest('.proj-photos');
+    if(!photo||photo.dataset.fallback==='true') return;
+    photo.dataset.fallback='true';
+    const card=photo.closest('.proj-card');
     const titleEl=card?card.querySelector('.proj-title-big'):null;
-    if(titleEl) slide.dataset.title=titleEl.textContent.replace(/\n/g,' ').trim();
+    if(titleEl) photo.dataset.title=titleEl.textContent.replace(/\n/g,' ').trim();
     console.warn('[image manquante]',this.getAttribute('src'),'→ vérifie que le dossier "images/" est bien au même niveau que index.html, et que le nom du fichier correspond exactement (majuscules/minuscules incluses).');
     this.remove();
   });
-});
-/* ancien fallback pour les slides en background-image (portfolio card) */
-document.querySelectorAll('.photo-slide[style*="background-image"]').forEach(slide=>{
-  const urlMatch=slide.style.backgroundImage.match(/url\(['"]?([^'"]+)['"]?\)/);
-  if(!urlMatch) return;
-  const url=urlMatch[1];
-  const img=new Image();
-  img.onerror=()=>{
-    slide.style.backgroundImage='none';
-    slide.dataset.fallback='true';
-    const card=slide.closest('.proj-card');
-    const titleEl=card?card.querySelector('.proj-title-big'):null;
-    if(titleEl) slide.dataset.title=titleEl.textContent.replace(/\n/g,' ').trim();
-  };
-  img.src=url;
 });
 
 /* ══ SCROLL REVEAL ══ */
@@ -1120,28 +1085,6 @@ const cardObs=new IntersectionObserver(entries=>{
     }
   });
 },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-
-/* ══ CAROUSEL ══ */
-document.querySelectorAll('.proj-photos').forEach(wrap=>{
-  const track=wrap.querySelector('.photo-track');
-  const slides=wrap.querySelectorAll('.photo-slide');
-  const countEl=wrap.querySelector('.photo-count');
-  if(!track||slides.length===0) return;
-  let cur=0;
-  if(slides.length>1){
-    const dotsWrap=document.createElement('div');dotsWrap.className='photo-dots-nav';
-    slides.forEach((_,i)=>{const d=document.createElement('button');d.className='photo-dot'+(i===0?' active':'');d.onclick=ev=>{ev.stopPropagation();go(i);};dotsWrap.appendChild(d);});
-    wrap.appendChild(dotsWrap);
-  }
-  const arrows=wrap.querySelectorAll('.photo-arr');
-  if(arrows[0]) arrows[0].onclick=ev=>{ev.stopPropagation();go((cur-1+slides.length)%slides.length);};
-  if(arrows[1]) arrows[1].onclick=ev=>{ev.stopPropagation();go((cur+1)%slides.length);};
-  function go(i){
-    cur=i;track.style.transform=`translateX(-${i*100}%)`;
-    wrap.querySelectorAll('.photo-dot').forEach((d,j)=>d.classList.toggle('active',j===i));
-    if(countEl) countEl.textContent=`${String(i+1).padStart(2,'0')}/${String(slides.length).padStart(2,'0')}`;
-  }
-});
 
 /* ══ FILTER (transition fondu + zoom) ══ */
 document.querySelectorAll('.filt-btn').forEach(btn=>{
