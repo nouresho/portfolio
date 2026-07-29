@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Générateur de projet — N.SARAKHI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:root{
+  --tan:#F2C79A; --tang:#FF5C00; --tang2:#CC4A00; --alabaster:#ECE9F5;
+  --sky:#4D6FE8; --choco:#0A1150; --choco2:#060A33; --linen:#F2C79A;
+  --v1:#0A1150; --v2:#1B2C99; --v3:#060A33; --v4:#0D1868; --v5:#FF5C00; --vgold:#FFA35C;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--choco);color:var(--linen);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;min-height:100vh}
+a{color:inherit}
+.wrap{max-width:920px;margin:0 auto;padding:50px 24px 100px}
+header{margin-bottom:36px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--tang);margin-bottom:10px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,5vw,54px);color:#fff;letter-spacing:.02em;line-height:1}
+.sub{opacity:.7;font-size:14px;margin-top:12px;max-width:600px}
+.steps{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 40px}
+.step{border:1px solid rgba(242,199,154,.25);padding:8px 14px;border-radius:20px;font-size:11.5px;opacity:.85}
+.step b{color:var(--tang)}
+
+.card{background:rgba(255,255,255,.02);border:1px solid rgba(242,199,154,.14);border-radius:16px;padding:28px;margin-bottom:24px}
+.card h2{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.05em;color:#fff;margin-bottom:4px}
+.card .hint{font-size:12px;opacity:.55;margin-bottom:18px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:640px){.row{grid-template-columns:1fr}}
+label{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.7;margin-bottom:7px}
+input[type=text],input[type=number],textarea,select{
+  width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(242,199,154,.2);
+  color:var(--linen);padding:11px 13px;border-radius:8px;font-family:'DM Sans',sans-serif;
+  font-size:13.5px;font-weight:300;outline:none;transition:border-color .2s,background .2s;
+}
+input::placeholder,textarea::placeholder{color:rgba(242,199,154,.35)}
+input:focus,textarea:focus,select:focus{border-color:var(--tang);background:rgba(255,255,255,.06)}
+textarea{resize:vertical;min-height:64px}
+select{cursor:pointer}
+.field{margin-bottom:16px}
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.swatch{width:38px;height:38px;border-radius:9px;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s}
+.swatch:hover{transform:translateY(-2px)}
+.swatch.active{border-color:#fff}
+.toggle-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;cursor:pointer}
+.toggle-row input{width:auto}
+.detail-fields{display:none;border-top:1px dashed rgba(242,199,154,.2);margin-top:18px;padding-top:18px}
+.detail-fields.open{display:block}
+
+.gen-btn{display:inline-flex;align-items:center;gap:9px;background:var(--tang);color:#fff;border:none;padding:15px 30px;
+  font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%);transition:background .2s,transform .2s,box-shadow .3s}
+.gen-btn:hover{background:var(--tang2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,92,0,.35)}
+
+.output{display:none;margin-top:34px}
+.output.open{display:block}
+.out-block{margin-bottom:26px}
+.out-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.out-head h3{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.04em;color:var(--tang)}
+.copy-btn{background:transparent;border:1px solid rgba(242,199,154,.35);color:var(--linen);padding:8px 16px;
+  border-radius:20px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.copy-btn:hover{background:var(--tang);border-color:var(--tang);color:#fff}
+.copy-btn.copied{background:#2f7d46;border-color:#2f7d46;color:#fff}
+textarea.out{width:100%;min-height:150px;background:#04061e;border:1px solid rgba(242,199,154,.15);
+  color:#c7d0ff;font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:16px;border-radius:10px;line-height:1.55}
+.instr{background:rgba(255,163,92,.07);border:1px solid rgba(255,163,92,.25);border-radius:10px;padding:16px 18px;font-size:12.5px;opacity:.9;margin-bottom:20px}
+.instr b{color:var(--tang)}
+.instr ol{margin:8px 0 0 18px}
+.instr li{margin-bottom:5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Outil interne</div>
+    <h1>Générateur de projet</h1>
+    <p class="sub">Remplis le formulaire, clique sur "Générer", copie le résultat et colle-le dans ton site. Aucun code à écrire.</p>
+  </header>
+
+  <div class="card">
+    <h2>1 · Infos de la carte</h2>
+    <p class="hint">Ce qui s'affiche dans la grille de projets sur la page d'accueil.</p>
+
+    <div class="row">
+      <div class="field">
+        <label>Titre — ligne 1 *</label>
+        <input type="text" id="titleL1" placeholder="Ex : QHIWA">
+      </div>
+      <div class="field">
+        <label>Titre — ligne 2 (optionnel)</label>
+        <input type="text" id="titleL2" placeholder="Ex : Coffee Brand">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Catégorie affichée *</label>
+        <input type="text" id="tag" placeholder="Ex : Design · Branding">
+      </div>
+      <div class="field">
+        <label>Filtre du site *</label>
+        <select id="filterType">
+          <option value="design">Design</option>
+          <option value="data">Data & BI</option>
+          <option value="dev">Dev Web</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Description courte * (1-2 phrases, reste court)</label>
+      <textarea id="desc" placeholder="Ex : Identité premium et minimaliste inspirée de la culture des cafés marocains."></textarea>
+    </div>
+
+    <div class="field">
+      <label>Pastilles techno / compétences (séparées par une virgule, 3 max conseillé)</label>
+      <input type="text" id="pills" placeholder="Ex : Brand Strategy, Logo Design, Packaging">
+    </div>
+
+    <div class="field">
+      <label>Couleur de la carte</label>
+      <div class="swatches" id="swatches">
+        <div class="swatch active" data-v="pcard-v1" style="background:var(--v1)"></div>
+        <div class="swatch" data-v="pcard-v2" style="background:var(--v2)"></div>
+        <div class="swatch" data-v="pcard-v3" style="background:var(--v3)"></div>
+        <div class="swatch" data-v="pcard-v4" style="background:var(--v4)"></div>
+        <div class="swatch" data-v="pcard-v5" style="background:var(--v5)"></div>
+        <div class="swatch" data-v="pcard-gold" style="background:var(--vgold)"></div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Nom du fichier image principal</label>
+      <input type="text" id="mainImg" placeholder="Ex : monprojet.jpg (sera cherché dans le dossier images/)">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2 · Liens</h2>
+    <p class="hint">Les deux boutons affichés sous la description.</p>
+
+    <label class="toggle-row"><input type="checkbox" id="makePage" checked> <span>Créer une page dédiée pour ce projet (recommandé pour le Design)</span></label>
+
+    <div class="row" style="margin-top:14px">
+      <div class="field">
+        <label>Lien externe pour "Voir" (si tu ne crées pas de page dédiée)</label>
+        <input type="text" id="externalLink" placeholder="Ex : https://... ou # si pas encore prêt">
+      </div>
+      <div class="field">
+        <label>Lien secondaire — libellé</label>
+        <select id="secLabel">
+          <option value="Behance">Behance</option>
+          <option value="Code">Code (GitHub)</option>
+          <option value="Site">Site en ligne</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Lien secondaire — URL</label>
+      <input type="text" id="secLink" placeholder="Ex : https://behance.net/... (laisse vide = #)">
+    </div>
+  </div>
+
+  <div class="card detail-fields open" id="detailFields">
+    <h2>3 · Page détail (si case cochée ci-dessus)</h2>
+    <p class="hint">Ces infos remplissent la page complète du projet, avec sa galerie photo.</p>
+
+    <div class="field">
+      <label>Vue d'ensemble (2-3 phrases)</label>
+      <textarea id="overview" placeholder="Décris le projet, son objectif, son inspiration..."></textarea>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Mon rôle (une ligne = un élément)</label>
+        <textarea id="roleList" placeholder="Brand Strategy&#10;Logo Design&#10;Packaging"></textarea>
+      </div>
+      <div class="field">
+        <label>Livrables (une ligne = un élément)</label>
+        <textarea id="delivList" placeholder="Système de logo&#10;Palette de marque&#10;Mockups packaging"></textarea>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Direction créative (paragraphe)</label>
+      <textarea id="direction" placeholder="Décris le style visuel, les couleurs, la typographie..."></textarea>
+    </div>
+
+    <div class="field">
+      <label>Nombre de photos dans la galerie</label>
+      <input type="number" id="galCount" value="6" min="1" max="12" style="max-width:120px">
+    </div>
+  </div>
+
+  <button class="gen-btn" onclick="generate()"><i class="ri-magic-line"></i> Générer le code</button>
+
+  <div class="output" id="output">
+
+    <div class="instr">
+      <b>Comment faire :</b>
+      <ol>
+        <li>Ouvre <b>index.html</b> avec un éditeur de texte (Bloc-notes, VS Code...)</li>
+        <li>Cherche (Ctrl+F) la dernière carte projet, juste avant <code>&lt;/div&gt;&lt;/section&gt;</code></li>
+        <li>Colle le <b>Bloc 1</b> juste avant cette ligne, enregistre</li>
+        <li>Si tu as une page dédiée : colle le <b>Bloc 2</b> dans un nouveau fichier, enregistre-le au même endroit que index.html sous le nom indiqué</li>
+        <li>Ajoute tes photos dans le dossier <code>images/</code> avec les noms exacts indiqués</li>
+      </ol>
+    </div>
+
+    <div class="out-block">
+      <div class="out-head">
+        <h3>Bloc 1 — à coller dans index.html</h3>
+        <button class="copy-btn" onclick="copyOut('outCard',this)"><i class="ri-file-copy-line"></i> Copier</button>
+      </div>
+      <textarea class="out" id="outCard" readonly></textarea>
+    </div>
+
+    <div class="out-block" id="pageBlock">
+      <div class="out-head">
+        <h3>Bloc 2 — nouveau fichier <span id="pageFileName" style="color:#fff"></span></h3>
+        <button class="copy-btn" onclick="copyOut('outPage',this)"><i class="ri-file-copy-line"></i> Copier</button>
+      </div>
+      <textarea class="out" id="outPage" readonly></textarea>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+document.getElementById('makePage').addEventListener('change', e=>{
+  document.getElementById('detailFields').classList.toggle('open', e.target.checked);
+});
+
+let activeVariant = 'pcard-v1';
+document.querySelectorAll('.swatch').forEach(s=>{
+  s.addEventListener('click', ()=>{
+    document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('active'));
+    s.classList.add('active');
+    activeVariant = s.dataset.v;
+  });
+});
+
+function slugify(str){
+  return str.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,'')
+    .trim();
+}
+function esc(str){
+  return (str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function linesToItems(text){
+  return text.split('\n').map(l=>l.trim()).filter(Boolean);
+}
+
+function generate(){
+  const l1 = document.getElementById('titleL1').value.trim() || 'Nouveau Projet';
+  const l2 = document.getElementById('titleL2').value.trim();
+  const tag = document.getElementById('tag').value.trim() || 'Projet';
+  const filterType = document.getElementById('filterType').value;
+  const desc = document.getElementById('desc').value.trim();
+  const pillsRaw = document.getElementById('pills').value.trim();
+  const pills = pillsRaw ? pillsRaw.split(',').map(p=>p.trim()).filter(Boolean) : [];
+  let mainImg = document.getElementById('mainImg').value.trim();
+  const slug = slugify(l1 + (l2?('-'+l2):''));
+  if(!mainImg) mainImg = slug + '.jpg';
+  if(!mainImg.startsWith('images/')) mainImg = 'images/' + mainImg;
+
+  const makePage = document.getElementById('makePage').checked;
+  const externalLink = document.getElementById('externalLink').value.trim();
+  const secLabel = document.getElementById('secLabel').value;
+  const secIcon = secLabel === 'Code' ? 'ri-github-fill' : (secLabel === 'Site' ? 'ri-external-link-line' : 'ri-github-fill');
+  let secLink = document.getElementById('secLink').value.trim() || '#';
+  const secTodo = secLink === '#' ? ' todo-link' : '';
+
+  const voirHref = makePage ? (slug + '.html') : (externalLink || '#');
+  const voirTodo = (!makePage && voirHref === '#') ? ' todo-link' : '';
+
+  const titleHtml = l2 ? (esc(l1) + '<br>' + esc(l2)) : esc(l1);
+  const pillsHtml = pills.map(p=>`<span class="proj-tech-pill">${esc(p)}</span>`).join('');
+
+  const cardHtml =
+`    <div class="proj-card ${activeVariant}" data-type="${filterType}" data-img="${mainImg}">
+      <div class="proj-photos" data-title="${esc(l1)}"><img src="${mainImg}" alt="${esc(l1)}${l2?(' — '+esc(l2)):''}"></div>
+      <div class="proj-info"><span class="proj-type-tag">${esc(tag)}</span><h3 class="proj-title-big">${titleHtml}</h3><p class="proj-desc-short">${esc(desc)}</p><div class="proj-tech-pills">${pillsHtml}</div><div class="proj-links"><a href="${voirHref}" class="proj-link main${voirTodo}"><i class="ri-eye-line"></i> Voir</a><a href="${secLink}" class="proj-link ghost${secTodo}"><i class="${secIcon}"></i> ${esc(secLabel)}</a></div></div>
+    </div>`;
+
+  document.getElementById('outCard').value = cardHtml;
+
+  if(makePage){
+    document.getElementById('pageBlock').style.display = 'block';
+    document.getElementById('pageFileName').textContent = slug + '.html';
+
+    const overview = document.getElementById('overview').value.trim();
+    const roleItems = linesToItems(document.getElementById('roleList').value);
+    const delivItems = linesToItems(document.getElementById('delivList').value);
+    const direction = document.getElementById('direction').value.trim();
+    const galCount = Math.max(1, Math.min(12, parseInt(document.getElementById('galCount').value) || 6));
+
+    const roleLi = roleItems.map(i=>`<li>${esc(i)}</li>`).join('');
+    const delivLi = delivItems.map(i=>`<li>${esc(i)}</li>`).join('');
+    const pillsSmall = pills.slice(0,5).map(p=>`<span class="pill">${esc(p)}</span>`).join('\n    ');
+
+    let gallery = '';
+    for(let i=1;i<=galCount;i++){
+      const cls = i===1 ? 'gallery-item big' : 'gallery-item';
+      gallery += `<div class="${cls}"><img src="images/${slug}-${i}.jpg" alt="${esc(l1)} — visuel ${i}"></div>\n    `;
+    }
+
+    const pageHtml = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>${esc(l1)}${l2?(' — '+esc(l2)):''} — N.SARAKHI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:root{
+  --tan:#F2C79A; --maroon:#FF5C00; --maroon2:#CC4A00; --alabaster:#ECE9F5;
+  --lightblue:#4D6FE8; --midnight:#0A1150; --midnight2:#060A33;
+  --linen:#F2C79A; --tang:#FF5C00; --tang2:#CC4A00; --choco:#0A1150; --choco2:#060A33;
+  --sky:#4D6FE8; --gold:#F2C79A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--choco);color:var(--linen);font-family:'DM Sans',sans-serif;line-height:1.7;font-weight:300;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 40px}
+header{padding:26px 0;border-bottom:1px solid rgba(242,199,154,.12)}
+.header-in{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.12em;color:var(--linen)}
+.back-link{display:inline-flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--linen);opacity:.75;transition:opacity .2s,transform .2s}
+.back-link:hover{opacity:1;transform:translateX(-4px)}
+.hero{padding:70px 0 46px}
+.tag{display:inline-block;border:1px solid rgba(242,199,154,.35);padding:6px 16px;border-radius:20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tang);margin-bottom:22px}
+.title{font-family:'Bebas Neue',sans-serif;font-size:clamp(46px,7.5vw,104px);line-height:.9;letter-spacing:.01em;color:#fff;margin-bottom:24px}
+.lead{font-size:16px;opacity:.85;max-width:620px;margin-bottom:30px}
+.pills{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:10px}
+.pill{border:1px solid rgba(242,199,154,.3);padding:7px 15px;border-radius:20px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--linen);opacity:.85}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;padding:46px 0;border-top:1px solid rgba(242,199,154,.15);border-bottom:1px solid rgba(242,199,154,.15);margin:50px 0 60px}
+.meta-block h3{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.06em;color:var(--tang);margin-bottom:16px}
+.meta-block ul{list-style:none}
+.meta-block li{padding:7px 0;font-size:14px;opacity:.85;position:relative;padding-left:18px}
+.meta-block li::before{content:'—';position:absolute;left:0;color:var(--sky)}
+.direction-sec{max-width:740px;margin-bottom:64px}
+.direction-sec h3{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.04em;color:#fff;margin-bottom:16px}
+.direction-sec p{font-size:15px;opacity:.85}
+.gallery-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.04em;color:#fff;margin-bottom:22px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-bottom:90px}
+.gallery-item{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--midnight2);border:1px solid rgba(242,199,154,.08)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item[data-fallback="true"]{display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+.gallery-item[data-fallback="true"]::after{content:attr(data-title);font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.06em;color:var(--linen);opacity:.35}
+.gallery-item.big{grid-column:span 2;aspect-ratio:16/9}
+@media (max-width:700px){.gallery-item.big{grid-column:span 1;aspect-ratio:4/3}.meta-grid{grid-template-columns:1fr;gap:32px}.wrap{padding:0 22px}}
+footer{padding:50px 0 70px;border-top:1px solid rgba(242,199,154,.12);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--tang);color:#fff;padding:13px 28px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .2s,box-shadow .3s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 100%,10px 100%)}
+.btn-primary:hover{background:var(--tang2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,92,0,.4)}
+.foot-note{font-size:12px;opacity:.5;letter-spacing:.05em}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a href="index.html" class="logo">N<em>.</em>SARAKHI</a>
+    <a href="index.html#projects" class="back-link"><i class="ri-arrow-left-line"></i> Retour au portfolio</a>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <span class="tag">${esc(tag)}</span>
+  <h1 class="title">${titleHtml}</h1>
+  <p class="lead">${esc(overview)}</p>
+  <div class="pills">
+    ${pillsSmall}
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="meta-grid">
+    <div class="meta-block">
+      <h3>Mon rôle</h3>
+      <ul>${roleLi}</ul>
+    </div>
+    <div class="meta-block">
+      <h3>Livrables</h3>
+      <ul>${delivLi}</ul>
+    </div>
+  </div>
+
+  <div class="direction-sec">
+    <h3>Direction créative</h3>
+    <p>${esc(direction)}</p>
+  </div>
+
+  <h3 class="gallery-title">Galerie</h3>
+  <div class="gallery">
+    ${gallery}
+  </div>
+
+  <footer>
+    <a href="index.html#projects" class="btn-primary"><i class="ri-arrow-left-line"></i> Tous les projets</a>
+    <span class="foot-note">Projet — ${esc(l1)}</span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.gallery-item img').forEach(img=>{
+  img.addEventListener('error',function(){
+    const item=this.closest('.gallery-item');
+    item.dataset.fallback='true';
+    item.dataset.title=this.alt || '${esc(l1)}';
+    this.remove();
+  });
+});
+<\/script>
+
+</body>
+</html>`;
+
+    document.getElementById('outPage').value = pageHtml;
+  } else {
+    document.getElementById('pageBlock').style.display = 'none';
+  }
+
+  document.getElementById('output').classList.add('open');
+  document.getElementById('output').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function copyOut(id, btn){
+  const el = document.getElementById(id);
+  el.select();
+  el.setSelectionRange(0, 999999);
+  navigator.clipboard.writeText(el.value).then(()=>{
+    const original = btn.innerHTML;
+    btn.innerHTML = '<i class="ri-check-line"></i> Copié !';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.innerHTML = original; btn.classList.remove('copied'); }, 1800);
+  });
+}
+</script>
+</body>
+</html>
