@@ -10,7 +10,7 @@ for (const file of files) {
     const value = match[1];
     if (/^(https?:|data:|mailto:|tel:)/.test(value) || value === '#') continue;
     const [relative, id] = value.split('#');
-    const path = decodeURIComponent(relative || file);
+    const path = decodeURIComponent((relative || file).split('?')[0]);
     assert(fs.existsSync(path), `${file}: missing ${path}`);
     if (id && path.endsWith('.html')) assert(fs.readFileSync(path, 'utf8').includes(`id="${id}"`), `${file}: missing #${id}`);
   }
