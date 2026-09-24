@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nour-Elhouda Sarakhi — Data · Dev · Design</title>
+<title>Nour-Elhouda Sarakhi — Dev · Design · Data</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-<style>
+<meta name="description" content="Portfolio de Nour-Elhouda Sarakhi : développement web, design de marque et analyse de données. Découvrez Housal, RZ Concept et EcoKephyra."><style>
 /* ═══════════════════════════
    PALETTE — Orange & Bleu
    Orange     #FF5C00
@@ -617,8 +617,8 @@ footer::before{content:'';position:absolute;top:0;left:20%;width:60%;height:2px;
   .photo-composition{width:min(300px,82vw);height:clamp(300px,75vw,380px)}
 }
 </style>
-</head>
-<body>
+<link rel="stylesheet" href="portfolio-updates.css"></head>
+<body id="home"><a class="skip-link" href="#main-content">Aller au contenu</a>
 
 <!-- CURSEUR LUXE -->
 <div id="cursor-outer"></div>
@@ -709,12 +709,12 @@ footer::before{content:'';position:absolute;top:0;left:20%;width:60%;height:2px;
         <span class="sticker s-choco">× Design</span>
       </div>
       <div class="hero-cta">
-        <a href="nour-elhouda sarakhi-CV.pdf" class="btn-primary"><i class="ri-download-2-line"></i> CV</a>
+        <a href="nour-elhouda%20sarakhi-CV.pdf" download class="btn-primary"><i class="ri-download-2-line"></i> CV</a>
         <a href="#projects" class="btn-ghost"><i class="ri-bar-chart-2-line"></i> Projets</a>
       </div>
       <div class="socials">
-        <a href="https://www.linkedin.com/in/nour-elhouda-sarakhi-11b643320/" target="_blank"><i class="ri-linkedin-fill"></i></a>
-        <a href="https://github.com/nouresho" target="_blank"><i class="ri-github-fill"></i></a>
+        <a href="https://www.linkedin.com/in/nour-elhouda-sarakhi-11b643320/" target="_blank" rel="noopener noreferrer"><i class="ri-linkedin-fill"></i></a>
+        <a href="https://github.com/nouresho" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i></a>
         <a href="mailto:sarakhinourelhouda@gmail.com"><i class="ri-mail-line"></i></a>
       </div>
     </div>
@@ -801,18 +801,13 @@ footer::before{content:'';position:absolute;top:0;left:20%;width:60%;height:2px;
       <div class="section-eyebrow">Réalisations</div>
       <h2 class="section-title">PROJETS<br><span>SÉLECTIONNÉS</span></h2>
     </div>
-    <div id="filter-bar" class="reveal">
-      <button class="filt-btn active" data-filter="all">✦ Tous</button>
-      <button class="filt-btn" data-filter="data">Data & BI</button>
-      <button class="filt-btn" data-filter="dev">Dev Web</button>
-      <button class="filt-btn" data-filter="design">Design</button>
-    </div>
+    <div id="filter-bar" class="reveal" role="group" aria-label="Filtrer les projets"><button class="filt-btn active" data-filter="all" aria-pressed="true">Tous les projets</button><button class="filt-btn" data-filter="dev" aria-pressed="false">Développement</button><button class="filt-btn" data-filter="design" aria-pressed="false">Design</button><button class="filt-btn" data-filter="data" aria-pressed="false">Data & BI</button></div><p id="project-status" role="status">23 projets · Développement, Design, Data</p>
   </div>
 
-  <div class="projects-list" id="projects-list">
-
-    <!-- Portfolio site — NOUVEAU PROJET (gold card) -->
-    <div class="proj-card pcard-gold" data-type="design" data-img="">
+  <div class="projects-list" id="projects-list"><div class="project-group" data-group="dev"><div class="group-heading"><span>01</span><div><h3>Développement</h3><p>Sites web & expériences interactives</p></div><b>9 projets</b></div><article class="proj-card featured-web pcard-v2" data-type="dev"><div class="proj-photos web-cover housal"><span class="browser-dots" aria-hidden="true">● ● ●</span><span class="cover-kicker">WEB DEVELOPMENT</span><strong>Housal</strong><span>housalstudio.vercel.app</span></div><div class="proj-info"><span class="proj-type-tag">Développement · Site web</span><h3 class="proj-title-big">Housal<br>Agency website</h3><p class="proj-desc-short">Site web de mon agence : présentation de l’univers de marque, des services et prise de contact.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Site vitrine</span><span class="proj-tech-pill">Identité de marque</span><span class="proj-tech-pill">Responsive</span></div><div class="proj-links"><a class="proj-link main" href="https://housalstudio.vercel.app/" target="_blank" rel="noopener noreferrer">Voir le site ↗</a><a class="proj-link ghost" href="housal-web.html">Détails du projet →</a></div></div></article>
+<article class="proj-card featured-web pcard-v2" data-type="dev"><div class="proj-photos web-cover rz"><span class="browser-dots" aria-hidden="true">● ● ●</span><span class="cover-kicker">WEB DEVELOPMENT</span><strong>RZ Concept</strong><span>rz-concept-website.vercel.app</span></div><div class="proj-info"><span class="proj-type-tag">Développement · Site web</span><h3 class="proj-title-big">RZ Concept<br>Creative studio</h3><p class="proj-desc-short">Site de studio créatif : espaces, reels Instagram, visite 360° à venir et interface multilingue.</p><div class="proj-tech-pills"><span class="proj-tech-pill">HTML / CSS</span><span class="proj-tech-pill">JavaScript</span><span class="proj-tech-pill">FR · EN · AR</span></div><div class="proj-links"><a class="proj-link main" href="https://rz-concept-website.vercel.app/" target="_blank" rel="noopener noreferrer">Voir le site ↗</a><a class="proj-link ghost" href="rz-concept.html">Détails du projet →</a></div></div></article>
+<article class="proj-card featured-web pcard-v2" data-type="dev"><div class="proj-photos web-cover eco"><span class="browser-dots" aria-hidden="true">● ● ●</span><span class="cover-kicker">WEB DEVELOPMENT</span><strong>EcoKephyra</strong><span>www.tamraghtscooter.com</span></div><div class="proj-info"><span class="proj-type-tag">Développement · Site web</span><h3 class="proj-title-big">EcoKephyra<br>Tamraght Scooter</h3><p class="proj-desc-short">Site web EcoKephyra, accessible sur Tamraght Scooter : une présence digitale dédiée au projet.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Site web</span><span class="proj-tech-pill">Interface web</span><span class="proj-tech-pill">Expérience utilisateur</span></div><div class="proj-links"><a class="proj-link main" href="https://www.tamraghtscooter.com/" target="_blank" rel="noopener noreferrer">Voir le site ↗</a><a class="proj-link ghost" href="ecokephyra.html">Détails du projet →</a></div></div></article>
+<div class="proj-card pcard-gold" data-type="dev">
       <div class="proj-photos" style="background:linear-gradient(135deg,#070B33,#0D1450);display:flex;align-items:center;justify-content:center;">
         <svg width="100" height="60" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <text x="50" y="38" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="28" fill="rgba(255,163,92,0.6)" letter-spacing="4">PORTFOLIO</text>
@@ -822,7 +817,7 @@ footer::before{content:'';position:absolute;top:0;left:20%;width:60%;height:2px;
       <div class="proj-info">
         <span class="proj-type-tag">Design · Dev Web</span>
         <h3 class="proj-title-big">Portfolio<br>Interactif</h3>
-        <p class="proj-desc-short">Ce portfolio — animation zine d'intro, curseur custom, particules dorées, transitions luxe, carousel de projets et formulaire de contact.</p>
+        <p class="proj-desc-short">Ce portfolio — animation zine d'intro, curseur custom, particules dorées, transitions luxe, navigation filtrée et contact par email.</p>
         <div class="proj-tech-pills">
           <span class="proj-tech-pill">HTML/CSS</span>
           <span class="proj-tech-pill">JavaScript</span>
@@ -830,108 +825,87 @@ footer::before{content:'';position:absolute;top:0;left:20%;width:60%;height:2px;
           <span class="proj-tech-pill">CSS Animations</span>
         </div>
         <div class="proj-links">
-          <a href="#top" class="proj-link main"><i class="ri-eye-line"></i> Voir</a>
-          <a href="https://github.com/nouresho" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a>
+          <a href="#home" class="proj-link main"><i class="ri-eye-line"></i> Voir</a>
+          <a href="https://github.com/nouresho/portfolio" class="proj-link ghost" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i> Code</a>
         </div>
       </div>
     </div>
-
-    <div class="proj-card pcard-v4" data-type="data" data-img="images/avito-cars.jpg">
-  <div class="proj-photos" data-title="Avito Used Car Market"><img src="images/avito.png" alt="Analyse Marché Voitures d'Occasion — Avito.ma"></div>
-  <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Avito<br>Used Car Market</h3><p class="proj-desc-short">EDA Python et dashboard Power BI sur 24 776 annonces Avito.ma — nettoyage, stats et analyse du marché automobile marocain.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">DAX</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
-</div>
-
-    <div class="proj-card pcard-v1" data-type="data" data-img="images/ANALYSE.jpg">
-      <div class="proj-photos" data-title="Dashboard Ventes"><img src="images/ANALYSE.jpg" alt="Dashboard Ventes"></div>
-      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Dashboard<br>Ventes & KPIs</h3><p class="proj-desc-short">Power BI : CA, marge, taux de conversion. Connecté à MySQL avec refresh automatique.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">MySQL</span><span class="proj-tech-pill">DAX</span><span class="proj-tech-pill">ETL</span></div><div class="proj-links"><a href="https://app.powerbi.com/links/ylkg3xzTwq?ctid=1a4c85f2-2be9-420f-808c-e7effb38377f&pbi_source=linkShare" class="proj-link main" target="_blank"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/agadata_analysePlantes" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
-    </div>
-
-    <div class="proj-card pcard-v2" data-type="data" data-img="images/youtube.jpg">
-      <div class="proj-photos" data-title="YouTube Analytics"><img src="images/youtube.jpg" alt="YouTube Analytics"></div>
-      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">YouTube<br>Analytics</h3><p class="proj-desc-short">Pipeline extrayant 2 222 vidéos via l'API YouTube Data v3. Dashboard Power BI interactif.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">YouTube API</span><span class="proj-tech-pill">Pandas</span><span class="proj-tech-pill">Power BI</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/YOUTUBE" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
-    </div>
-
-    <div class="proj-card pcard-v3" data-type="data" data-img="images/RHDASHBOARD.jpg">
-      <div class="proj-photos" data-title="Analyse RH"><img src="images/RHDASHBOARD.jpg" alt="Analyse RH"></div>
-      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Analyse RH<br>& Turnover</h3><p class="proj-desc-short">Tableau de bord RH : attrition, satisfaction, pyramide des âges, prédiction ML.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">DAX</span></div><div class="proj-links"><a href="https://app.powerbi.com/links/FsNu5p_Om0?ctid=1a4c85f2-2be9-420f-808c-e7effb38377f&pbi_source=linkShare" class="proj-link main" target="_blank"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/advanced-hr" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
-    </div>
-
-    <div class="proj-card pcard-v4" data-type="data" data-img="images/NETFLIX.jpg">
-      <div class="proj-photos" data-title="Netflix Catalogue"><img src="images/NETFLIX.jpg" alt="Netflix Catalogue"></div>
-      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Catalogue<br>Netflix</h3><p class="proj-desc-short">Tendances films/séries, top genres, pays de production, évolution 2011–2021.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">Pandas</span><span class="proj-tech-pill">Matplotlib</span><span class="proj-tech-pill">Power BI</span></div><div class="proj-links"><a href="https://app.powerbi.com/links/v5Zi98a6gq?ctid=1a4c85f2-2be9-420f-808c-e7effb38377f&pbi_source=linkShare" class="proj-link main" target="_blank"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/PYTHON_NETFLIX" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
-    </div>
-
-    <div class="proj-card pcard-v5" data-type="data" data-img="images/tableau.jpg">
-      <div class="proj-photos" data-title="Sales Analytics"><img src="images/tableau.jpg" alt="Sales Analytics"></div>
-      <div class="proj-info"><span class="proj-type-tag">Data Viz</span><h3 class="proj-title-big">Sales &<br>Customer Analytics</h3><p class="proj-desc-short">KPI dynamiques YoY, segmentation LOD avancée, navigation Sales ↔ Customer.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Tableau</span><span class="proj-tech-pill">LOD</span><span class="proj-tech-pill">Data Viz</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/brief2_customers_sales_dashboard" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
-    </div>
-
-    <div class="proj-card pcard-v1" data-type="data" data-img="images/campagnes.jpg">
-      <div class="proj-photos" data-title="Marketing Digital"><img src="images/campagnes.jpg" alt="Marketing Digital"></div>
-      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Dashboard<br>Marketing Digital</h3><p class="proj-desc-short">ROI par source, entonnoir de conversion, segmentation géo et recommandations budget.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">SQL</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/campagnes-marketing" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
-    </div>
-
-    <div class="proj-card pcard-v2" data-type="dev" data-img="images/digilion.jpg">
+<div class="proj-card pcard-v2" data-type="dev">
       <div class="proj-photos" data-title="SaaS RDV"><img src="images/digilion.jpg" alt="SaaS RDV"></div>
-      <div class="proj-info"><span class="proj-type-tag">Dev Web</span><h3 class="proj-title-big">SaaS Prise de<br>Rendez-vous</h3><p class="proj-desc-short">Application SaaS complète : réservation en ligne, créneaux, notifications, admin.</p><div class="proj-tech-pills"><span class="proj-tech-pill">React</span><span class="proj-tech-pill">Node.js</span><span class="proj-tech-pill">Express</span><span class="proj-tech-pill">MySQL</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
+      <div class="proj-info"><span class="proj-type-tag">Dev Web</span><h3 class="proj-title-big">SaaS Prise de<br>Rendez-vous</h3><p class="proj-desc-short">Application SaaS complète : réservation en ligne, créneaux, notifications, admin.</p><div class="proj-tech-pills"><span class="proj-tech-pill">React</span><span class="proj-tech-pill">Node.js</span><span class="proj-tech-pill">Express</span><span class="proj-tech-pill">MySQL</span></div><div class="proj-links"><a href="images/digilion.jpg" class="proj-link main" target="_blank" rel="noopener noreferrer">Voir l’aperçu ↗</a></div></div>
     </div>
-
-    <div class="proj-card pcard-v3" data-type="dev" data-img="images/oasis.jpg">
+<div class="proj-card pcard-v3" data-type="dev">
       <div class="proj-photos" data-title="Gestion Hôtel"><img src="images/oasis.jpg" alt="Gestion Hôtel"></div>
-      <div class="proj-info"><span class="proj-type-tag">Dev Web</span><h3 class="proj-title-big">Gestion Hôtel<br>— Web App</h3><p class="proj-desc-short">Gestion des réservations, chambres et services avec tableau de bord en temps réel.</p><div class="proj-tech-pills"><span class="proj-tech-pill">HTML/CSS</span><span class="proj-tech-pill">PHP</span><span class="proj-tech-pill">MySQL</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
+      <div class="proj-info"><span class="proj-type-tag">Dev Web</span><h3 class="proj-title-big">Gestion Hôtel<br>— Web App</h3><p class="proj-desc-short">Gestion des réservations, chambres et services avec tableau de bord en temps réel.</p><div class="proj-tech-pills"><span class="proj-tech-pill">HTML/CSS</span><span class="proj-tech-pill">PHP</span><span class="proj-tech-pill">MySQL</span></div><div class="proj-links"><a href="images/oasis.jpg" class="proj-link main" target="_blank" rel="noopener noreferrer">Voir l’aperçu ↗</a></div></div>
     </div>
-
-    <div class="proj-card pcard-v4" data-type="dev" data-img="images/focus.jpg">
+<div class="proj-card pcard-v4" data-type="dev">
       <div class="proj-photos" data-title="E-commerce"><img src="images/focus.jpg" alt="E-commerce"></div>
-      <div class="proj-info"><span class="proj-type-tag">Dev Web</span><h3 class="proj-title-big">Plateforme<br>E-commerce</h3><p class="proj-desc-short">Vente en ligne avec gestion produits, panier et paiement sécurisé intégré.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Vue.js</span><span class="proj-tech-pill">PHP</span><span class="proj-tech-pill">MySQL</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
+      <div class="proj-info"><span class="proj-type-tag">Dev Web</span><h3 class="proj-title-big">Plateforme<br>E-commerce</h3><p class="proj-desc-short">Vente en ligne avec gestion produits, panier et paiement sécurisé intégré.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Vue.js</span><span class="proj-tech-pill">PHP</span><span class="proj-tech-pill">MySQL</span></div><div class="proj-links"><a href="images/focus.jpg" class="proj-link main" target="_blank" rel="noopener noreferrer">Voir l’aperçu ↗</a></div></div>
     </div>
-
-    <div class="proj-card pcard-v5" data-type="dev" data-img="images/game.jpg">
+<div class="proj-card pcard-v5" data-type="dev">
       <div class="proj-photos" data-title="Jeu Mobile"><img src="images/game.jpg" alt="Jeu Mobile"></div>
-      <div class="proj-info"><span class="proj-type-tag">Dev Mobile</span><h3 class="proj-title-big">Jeu de Réflexion<br>Algorithmique</h3><p class="proj-desc-short">Jeu mobile interactif : défis algorithmiques progressifs pour améliorer la logique.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Ionic</span><span class="proj-tech-pill">React</span><span class="proj-tech-pill">JavaScript</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
+      <div class="proj-info"><span class="proj-type-tag">Dev Mobile</span><h3 class="proj-title-big">Jeu de Réflexion<br>Algorithmique</h3><p class="proj-desc-short">Jeu mobile interactif : défis algorithmiques progressifs pour améliorer la logique.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Ionic</span><span class="proj-tech-pill">React</span><span class="proj-tech-pill">JavaScript</span></div><div class="proj-links"><a href="images/game.jpg" class="proj-link main" target="_blank" rel="noopener noreferrer">Voir l’aperçu ↗</a></div></div>
     </div>
-
-    <div class="proj-card pcard-v1" data-type="dev" data-img="images/estm.jpg">
-      <div class="proj-photos" data-title="Visite 360°"><img src="images/estm.jpg" alt="Visite 360°"></div>
-      <div class="proj-info"><span class="proj-type-tag">Dev 3D</span><h3 class="proj-title-big">Visite Virtuelle<br>360° ESTM</h3><p class="proj-desc-short">Visite immersive de l'ESTM avec navigation interactive — modélisation 3DS Max.</p><div class="proj-tech-pills"><span class="proj-tech-pill">3DS Max</span><span class="proj-tech-pill">Web 360°</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Code</a></div></div>
-    </div>
-
-    <div class="proj-card pcard-v2" data-type="data" data-img="images/EXCEL.jpg">
-      <div class="proj-photos" data-title="Dashboard Excel"><img src="images/EXCEL.jpg" alt="Dashboard Excel"></div>
-      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Dashboard<br>Ventes Excel</h3><p class="proj-desc-short">Dashboard Excel avec Power Query et TCD pour suivre ventes, CA et performances.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Excel</span><span class="proj-tech-pill">Power Query</span><span class="proj-tech-pill">TCD</span></div><div class="proj-links"><a href="#" class="proj-link main todo-link"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/brief-excel" class="proj-link ghost" target="_blank"><i class="ri-github-fill"></i> Code</a></div></div>
-    </div>
-
-    <div class="proj-card pcard-v3" data-type="design" data-img="images/qhiwa.jpg">
+<div class="proj-card pcard-v1" data-type="dev">
+      <div class="proj-photos" data-title="Visite 360°"><span class="asset-placeholder">Visite 360° — visuel à venir</span></div>
+      <div class="proj-info"><span class="proj-type-tag">Dev 3D</span><h3 class="proj-title-big">Visite Virtuelle<br>360° ESTM</h3><p class="proj-desc-short">Visite immersive de l'ESTM avec navigation interactive — modélisation 3DS Max.</p><div class="proj-tech-pills"><span class="proj-tech-pill">3DS Max</span><span class="proj-tech-pill">Web 360°</span></div><div class="proj-links"><span class="project-unavailable">Démo non publiée</span></div></div>
+    </div></div>
+<div class="project-group" data-group="design"><div class="group-heading"><span>02</span><div><h3>Design</h3><p>Identités de marque & direction artistique</p></div><b>6 projets</b></div><div class="proj-card pcard-v3" data-type="design">
       <div class="proj-photos" data-title="QHIWA"><img src="images/QHIWA/QHIWA (2).png" alt="QHIWA — Coffee Brand Identity"></div>
-      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">QHIWA<br>Coffee Brand</h3><p class="proj-desc-short">Identité premium et minimaliste inspirée de la culture des cafés marocains — logo, palette, menu, packaging.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Strategy</span><span class="proj-tech-pill">Logo Design</span><span class="proj-tech-pill">Packaging</span></div><div class="proj-links"><a href="qhiwa.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
+      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">QHIWA<br>Coffee Brand</h3><p class="proj-desc-short">Identité premium et minimaliste inspirée de la culture des cafés marocains — logo, palette, menu, packaging.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Strategy</span><span class="proj-tech-pill">Logo Design</span><span class="proj-tech-pill">Packaging</span></div><div class="proj-links"><a href="qhiwa.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a></div></div>
     </div>
-
-    <div class="proj-card pcard-v4" data-type="design" data-img="images/flourlab.jpg">
+<div class="proj-card pcard-v4" data-type="design">
       <div class="proj-photos" data-title="FLOUR LAB"><img src="images/FLOORLAB/1.png" alt="Flour Lab — Artisan Bakery Branding"></div>
-      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">Flour Lab<br>Bakery Brand</h3><p class="proj-desc-short">Identité éditoriale : typographie vintage, mise en page minimaliste, packaging et affiches vitrine.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Identity</span><span class="proj-tech-pill">Packaging</span><span class="proj-tech-pill">Print Ads</span></div><div class="proj-links"><a href="flourlab.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
+      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">Flour Lab<br>Bakery Brand</h3><p class="proj-desc-short">Identité éditoriale : typographie vintage, mise en page minimaliste, packaging et affiches vitrine.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Identity</span><span class="proj-tech-pill">Packaging</span><span class="proj-tech-pill">Print Ads</span></div><div class="proj-links"><a href="flourlab.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a></div></div>
     </div>
-
-    <div class="proj-card pcard-v5" data-type="design" data-img="images/elara.jpg">
+<div class="proj-card pcard-v5" data-type="design">
       <div class="proj-photos" data-title="ELARA"><img src="images/ELARA/logopic.png" alt="ELARA — Premium Beauty Brand"></div>
-      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">ELARA<br>Beauty Brand</h3><p class="proj-desc-short">Identité luxueuse et féminine — ivoire chaud, rose élégant, bordeaux profond pour le skincare premium.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Art Direction</span><span class="proj-tech-pill">Typography</span><span class="proj-tech-pill">Packaging</span></div><div class="proj-links"><a href="elara.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
+      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">ELARA<br>Beauty Brand</h3><p class="proj-desc-short">Identité luxueuse et féminine — ivoire chaud, rose élégant, bordeaux profond pour le skincare premium.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Art Direction</span><span class="proj-tech-pill">Typography</span><span class="proj-tech-pill">Packaging</span></div><div class="proj-links"><a href="elara.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a></div></div>
     </div>
-
-    <div class="proj-card pcard-v1" data-type="design" data-img="images/northafricasurf.jpg">
+<div class="proj-card pcard-v1" data-type="design">
       <div class="proj-photos" data-title="North Africa Surf"><img src="images/northafrica/LOGOPIC.png" alt="North Africa Surf — Surf Lifestyle Brand"></div>
-      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">North Africa<br>Surf</h3><p class="proj-desc-short">Identité surf minimaliste et côtière inspirée de l'Atlantique marocain — packaging, signalétique et social media.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Identity</span><span class="proj-tech-pill">Packaging</span><span class="proj-tech-pill">Signage</span></div><div class="proj-links"><a href="northafricasurf.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
+      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">North Africa<br>Surf</h3><p class="proj-desc-short">Identité surf minimaliste et côtière inspirée de l'Atlantique marocain — packaging, signalétique et social media.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Identity</span><span class="proj-tech-pill">Packaging</span><span class="proj-tech-pill">Signage</span></div><div class="proj-links"><a href="northafricasurf.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a></div></div>
     </div>
-
-    <div class="proj-card pcard-v2" data-type="design" data-img="images/housal.jpg">
+<div class="proj-card pcard-v2" data-type="design">
       <div class="proj-photos" data-title="Housal"><img src="images/housallogo.png" alt="Housal — Marketing & Branding Agency"></div>
-      <div class="proj-info"><span class="proj-type-tag">Design · Startup Branding</span><h3 class="proj-title-big">Housal<br>Marketing Agency</h3><p class="proj-desc-short">Ma propre startup — agence de marketing & branding, identité complète et site Next.js.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Strategy</span><span class="proj-tech-pill">Logo Design</span><span class="proj-tech-pill">Next.js</span></div><div class="proj-links"><a href="housal.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Site</a></div></div>
+      <div class="proj-info"><span class="proj-type-tag">Design · Startup Branding</span><h3 class="proj-title-big">Housal<br>Marketing Agency</h3><p class="proj-desc-short">Ma propre startup — agence de marketing & branding, identité complète et site Next.js.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Strategy</span><span class="proj-tech-pill">Logo Design</span><span class="proj-tech-pill">Next.js</span></div><div class="proj-links"><a href="housal.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="https://housalstudio.vercel.app/" class="proj-link ghost" target="_blank" rel="noopener noreferrer">Voir le site ↗</a></div></div>
     </div>
-
-    <div class="proj-card pcard-v3" data-type="design" data-img="images/melto.jpg">
+<div class="proj-card pcard-v3" data-type="design">
       <div class="proj-photos" data-title="Melto"><img src="images/MELTOCOOKIES/LOGOPIC.png" alt="Melto — Cookies Brand Identity"></div>
-      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">Melto<br>Cookies Brand</h3><p class="proj-desc-short">Identité gourmande et premium pour une marque de cookies artisanaux — packaging & illustration.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Identity</span><span class="proj-tech-pill">Packaging</span><span class="proj-tech-pill">Illustration</span></div><div class="proj-links"><a href="melto.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a><a href="#" class="proj-link ghost todo-link"><i class="ri-github-fill"></i> Behance</a></div></div>
+      <div class="proj-info"><span class="proj-type-tag">Design · Branding</span><h3 class="proj-title-big">Melto<br>Cookies Brand</h3><p class="proj-desc-short">Identité gourmande et premium pour une marque de cookies artisanaux — packaging & illustration.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Brand Identity</span><span class="proj-tech-pill">Packaging</span><span class="proj-tech-pill">Illustration</span></div><div class="proj-links"><a href="melto.html" class="proj-link main"><i class="ri-eye-line"></i> Voir</a></div></div>
+    </div></div>
+<div class="project-group" data-group="data"><div class="group-heading"><span>03</span><div><h3>Data & BI</h3><p>Analyse, visualisation & aide à la décision</p></div><b>8 projets</b></div><div class="proj-card pcard-v4" data-type="data">
+  <div class="proj-photos" data-title="Avito Used Car Market"><img src="images/avito.png" alt="Analyse Marché Voitures d'Occasion — Avito.ma"></div>
+  <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Avito<br>Used Car Market</h3><p class="proj-desc-short">EDA Python et dashboard Power BI sur 24 776 annonces Avito.ma — nettoyage, stats et analyse du marché automobile marocain.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">DAX</span></div><div class="proj-links"><a href="images/avito.png" class="proj-link main" target="_blank" rel="noopener noreferrer">Voir l’aperçu ↗</a><a href="https://github.com/nouresho/used-car-market-analysis-morocco" class="proj-link ghost" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div>
+</div>
+<div class="proj-card pcard-v1" data-type="data">
+      <div class="proj-photos" data-title="Dashboard Ventes"><img src="images/ANALYSE.jpg" alt="Dashboard Ventes"></div>
+      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Dashboard<br>Ventes & KPIs</h3><p class="proj-desc-short">Power BI : CA, marge, taux de conversion. Connecté à MySQL avec refresh automatique.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">MySQL</span><span class="proj-tech-pill">DAX</span><span class="proj-tech-pill">ETL</span></div><div class="proj-links"><a href="https://app.powerbi.com/links/ylkg3xzTwq?ctid=1a4c85f2-2be9-420f-808c-e7effb38377f&pbi_source=linkShare" class="proj-link main" target="_blank" rel="noopener noreferrer"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/agadata_analysePlantes" class="proj-link ghost" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i> Code</a></div></div>
     </div>
-
-  </div>
+<div class="proj-card pcard-v2" data-type="data">
+      <div class="proj-photos" data-title="YouTube Analytics"><img src="images/youtube.jpg" alt="YouTube Analytics"></div>
+      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">YouTube<br>Analytics</h3><p class="proj-desc-short">Pipeline extrayant 2 222 vidéos via l'API YouTube Data v3. Dashboard Power BI interactif.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">YouTube API</span><span class="proj-tech-pill">Pandas</span><span class="proj-tech-pill">Power BI</span></div><div class="proj-links"><a href="images/youtube.jpg" class="proj-link main" target="_blank" rel="noopener noreferrer">Voir l’aperçu ↗</a><a href="https://github.com/nouresho/Pipeline-d-ingestion-et-transformation-de-donn-es-YouTube-pour-analyse-d-cisionnelle" class="proj-link ghost" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i> Code</a></div></div>
+    </div>
+<div class="proj-card pcard-v3" data-type="data">
+      <div class="proj-photos" data-title="Analyse RH"><img src="images/RHDASHBOARD.jpg" alt="Analyse RH"></div>
+      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Analyse RH<br>& Turnover</h3><p class="proj-desc-short">Tableau de bord RH : attrition, satisfaction, pyramide des âges, prédiction ML.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">DAX</span></div><div class="proj-links"><a href="https://app.powerbi.com/links/FsNu5p_Om0?ctid=1a4c85f2-2be9-420f-808c-e7effb38377f&pbi_source=linkShare" class="proj-link main" target="_blank" rel="noopener noreferrer"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/Power-BI-Advanced-HR-Data-Modeling-KPIs-Interactive-Dashboards" class="proj-link ghost" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i> Code</a></div></div>
+    </div>
+<div class="proj-card pcard-v4" data-type="data">
+      <div class="proj-photos" data-title="Netflix Catalogue"><img src="images/NETFLIX.jpg" alt="Netflix Catalogue"></div>
+      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Catalogue<br>Netflix</h3><p class="proj-desc-short">Tendances films/séries, top genres, pays de production, évolution 2011–2021.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">Pandas</span><span class="proj-tech-pill">Matplotlib</span><span class="proj-tech-pill">Power BI</span></div><div class="proj-links"><a href="https://app.powerbi.com/links/v5Zi98a6gq?ctid=1a4c85f2-2be9-420f-808c-e7effb38377f&pbi_source=linkShare" class="proj-link main" target="_blank" rel="noopener noreferrer"><i class="ri-eye-line"></i> Voir</a><a href="https://github.com/nouresho/PYTHON_NETFLIX" class="proj-link ghost" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i> Code</a></div></div>
+    </div>
+<div class="proj-card pcard-v5" data-type="data">
+      <div class="proj-photos" data-title="Sales Analytics"><img src="images/tableau.jpg" alt="Sales Analytics"></div>
+      <div class="proj-info"><span class="proj-type-tag">Data Viz</span><h3 class="proj-title-big">Sales &<br>Customer Analytics</h3><p class="proj-desc-short">KPI dynamiques YoY, segmentation LOD avancée, navigation Sales ↔ Customer.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Tableau</span><span class="proj-tech-pill">LOD</span><span class="proj-tech-pill">Data Viz</span></div><div class="proj-links"><a href="images/tableau.jpg" class="proj-link main" target="_blank" rel="noopener noreferrer">Voir l’aperçu ↗</a><a href="https://github.com/nouresho/customers_sales_dashboard" class="proj-link ghost" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i> Code</a></div></div>
+    </div>
+<div class="proj-card pcard-v1" data-type="data">
+      <div class="proj-photos" data-title="Marketing Digital"><img src="images/campagnes.jpg" alt="Marketing Digital"></div>
+      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Dashboard<br>Marketing Digital</h3><p class="proj-desc-short">ROI par source, entonnoir de conversion, segmentation géo et recommandations budget.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Power BI</span><span class="proj-tech-pill">Python</span><span class="proj-tech-pill">SQL</span></div><div class="proj-links"><a href="images/campagnes.jpg" class="proj-link main" target="_blank" rel="noopener noreferrer">Voir l’aperçu ↗</a><a href="https://github.com/nouresho/Optimisation-et-analyse-des-performances-des-campagnes-marketing-" class="proj-link ghost" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i> Code</a></div></div>
+    </div>
+<div class="proj-card pcard-v2" data-type="data">
+      <div class="proj-photos" data-title="Dashboard Excel"><img src="images/EXCEL.jpg" alt="Dashboard Excel"></div>
+      <div class="proj-info"><span class="proj-type-tag">Data Analytics</span><h3 class="proj-title-big">Dashboard<br>Ventes Excel</h3><p class="proj-desc-short">Dashboard Excel avec Power Query et TCD pour suivre ventes, CA et performances.</p><div class="proj-tech-pills"><span class="proj-tech-pill">Excel</span><span class="proj-tech-pill">Power Query</span><span class="proj-tech-pill">TCD</span></div><div class="proj-links"><a href="images/EXCEL.jpg" class="proj-link main" target="_blank" rel="noopener noreferrer">Voir l’aperçu ↗</a><a href="https://github.com/nouresho/Excel-Nettoyage-Pr-paration-et-Tableau-de-Bord-Analytique" class="proj-link ghost" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i> Code</a></div></div>
+    </div></div></div>
 </section>
 
 
@@ -950,20 +924,20 @@ footer::before{content:'';position:absolute;top:0;left:20%;width:60%;height:2px;
         <p>Data Analysis, dashboards BI, développement web ou identité visuelle — disponible pour vos projets et missions freelance.</p>
         <div>
           <a href="mailto:sarakhinourelhouda@gmail.com" class="clink"><div class="clink-icon"><i class="ri-mail-line"></i></div>sarakhinourelhouda@gmail.com</a>
-          <a href="https://www.linkedin.com/in/nour-elhouda-sarakhi-11b643320/" class="clink" target="_blank"><div class="clink-icon"><i class="ri-linkedin-fill"></i></div>LinkedIn — Nour-Elhouda Sarakhi</a>
-          <a href="https://github.com/nouresho" class="clink" target="_blank"><div class="clink-icon"><i class="ri-github-fill"></i></div>github.com/nouresho</a>
+          <a href="https://www.linkedin.com/in/nour-elhouda-sarakhi-11b643320/" class="clink" target="_blank" rel="noopener noreferrer"><div class="clink-icon"><i class="ri-linkedin-fill"></i></div>LinkedIn — Nour-Elhouda Sarakhi</a>
+          <a href="https://github.com/nouresho" class="clink" target="_blank" rel="noopener noreferrer"><div class="clink-icon"><i class="ri-github-fill"></i></div>github.com/nouresho</a>
           <div class="clink"><div class="clink-icon"><i class="ri-map-pin-2-line"></i></div>Maroc 🇲🇦</div>
         </div>
       </div>
       <div class="contact-form-wrap reveal">
         <form id="contact-form">
           <div class="form-row">
-            <div class="form-group"><label>Nom</label><input type="text" placeholder="Votre nom" required></div>
-            <div class="form-group"><label>Email</label><input type="email" placeholder="votre@email.com" required></div>
+            <div class="form-group"><label for="contact-name">Nom</label><input id="contact-name" name="name" type="text" placeholder="Votre nom" required></div>
+            <div class="form-group"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" placeholder="votre@email.com" required></div>
           </div>
-          <div class="form-group"><label>Sujet</label><input type="text" placeholder="Mission Data / Collaboration..."></div>
-          <div class="form-group"><label>Message</label><textarea rows="4" placeholder="Décrivez votre projet..." required></textarea></div>
-          <button type="submit" class="form-submit"><i class="ri-send-plane-fill"></i> Envoyer</button>
+          <div class="form-group"><label for="contact-subject">Sujet</label><input id="contact-subject" name="subject" type="text" placeholder="Mission Data / Collaboration..."></div>
+          <div class="form-group"><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea></div>
+          <button type="submit" class="form-submit"><i class="ri-send-plane-fill"></i> Préparer mon email</button><p id="contact-status" role="status">Ouvre votre messagerie. Aucun message n’est envoyé automatiquement.</p>
         </form>
       </div>
     </div>
@@ -975,9 +949,9 @@ footer::before{content:'';position:absolute;top:0;left:20%;width:60%;height:2px;
   <div class="footer-inner">
     <p class="footer-copy">© 2026 <span>Nour-Elhouda Sarakhi</span> — Data · Dev · Design</p>
     <div class="footer-socials">
-      <a href="https://www.instagram.com/sh3sbusy__" target="_blank"><i class="ri-instagram-fill"></i></a>
-      <a href="https://www.linkedin.com/in/nour-elhouda-sarakhi-11b643320/" target="_blank"><i class="ri-linkedin-fill"></i></a>
-      <a href="https://github.com/nouresho" target="_blank"><i class="ri-github-fill"></i></a>
+      <a href="https://www.instagram.com/sh3sbusy__" target="_blank" rel="noopener noreferrer"><i class="ri-instagram-fill"></i></a>
+      <a href="https://www.linkedin.com/in/nour-elhouda-sarakhi-11b643320/" target="_blank" rel="noopener noreferrer"><i class="ri-linkedin-fill"></i></a>
+      <a href="https://github.com/nouresho" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i></a>
     </div>
   </div>
 </footer>
@@ -996,7 +970,7 @@ function animateCursor(){
   cursorOuter.style.left=outerX+'px';cursorOuter.style.top=outerY+'px';
   requestAnimationFrame(animateCursor);
 }
-animateCursor();
+if(window.matchMedia('(pointer:fine) and (prefers-reduced-motion: no-preference)').matches)animateCursor();
 document.querySelectorAll('a,button,.sticker,.stag,.stat-cell,.proj-card,.filt-btn').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
@@ -1013,6 +987,7 @@ window.addEventListener('scroll',()=>{
 
 /* ══ PARTICLES (gold dust) ══ */
 (function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   const canvas=document.getElementById('particles-canvas');
   const ctx=canvas.getContext('2d');
   let W,H,particles=[];
@@ -1067,9 +1042,9 @@ window.addEventListener('scroll',()=>{
       intro.style.display='none';
       header.classList.add('visible');mainEl.classList.add('visible');
       document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
-      document.querySelectorAll('.proj-card').forEach((c,i)=>{c.dataset.cardDelay=i*75;cardObs.observe(c);});
+      document.querySelectorAll('.proj-card').forEach((c,i)=>{c.dataset.cardDelay=(i%3)*65;cardObs.observe(c);});
     },700);
-  },3600);
+  },window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:1400);
 })();
 
 /* ══ IMAGE FALLBACK — check si les images <img> se chargent ══ */
@@ -1102,32 +1077,13 @@ const cardObs=new IntersectionObserver(entries=>{
 },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
 
 /* ══ FILTER (transition fondu + zoom) ══ */
-document.querySelectorAll('.filt-btn').forEach(btn=>{
-  btn.addEventListener('click',function(){
-    document.querySelectorAll('.filt-btn').forEach(b=>b.classList.remove('active'));
-    this.classList.add('active');
-    const f=this.dataset.filter;
-    const cards=document.querySelectorAll('.proj-card');
-    cards.forEach((c,i)=>{
-      const show=f==='all'||c.dataset.type===f;
-      c.style.transition='opacity .3s ease, transform .3s ease';
-      if(show){
-        c.style.opacity='0';c.style.transform='translateY(14px) scale(.96)';
-        setTimeout(()=>{
-          c.style.display='grid';
-          requestAnimationFrame(()=>{
-            c.style.opacity='1';c.style.transform='translateY(0) scale(1)';
-            if(!c.classList.contains('card-visible'))c.classList.add('card-visible');
-            setTimeout(()=>{c.style.transition='';c.style.opacity='';c.style.transform='';},320);
-          });
-        },200+i*18);
-      }else{
-        c.style.opacity='0';c.style.transform='translateY(-10px) scale(.96)';
-        setTimeout(()=>{c.style.display='none';},260);
-      }
-    });
-  });
-});
+function filterProjects(type) {
+ document.querySelectorAll('.filt-btn').forEach(b=>{const selected=b.dataset.filter===type;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));});
+ document.querySelectorAll('.project-group').forEach(g=>{g.hidden=type!=='all'&&g.dataset.group!==type;});
+ let count=0;document.querySelectorAll('.proj-card').forEach(c=>{if(type==='all'||c.dataset.type===type){count++;c.classList.add('card-visible');}});
+ document.getElementById('project-status').textContent=count+' projet'+(count>1?'s':'')+' affiché'+(count>1?'s':'');
+}
+document.querySelectorAll('.filt-btn').forEach(btn=>btn.addEventListener('click',()=>filterProjects(btn.dataset.filter)));
 
 /* ══ TILT 3D au survol des cartes projets ══ */
 document.querySelectorAll('.proj-card').forEach(card=>{
@@ -1147,8 +1103,8 @@ document.querySelectorAll('.proj-card').forEach(card=>{
 /* ══ HAMBURGER ══ */
 const hamburger=document.getElementById('hamburger');
 const mobileNav=document.getElementById('mobile-nav');
-hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileNav.classList.toggle('open');});
-function closeMobileNav(){hamburger.classList.remove('open');mobileNav.classList.remove('open');}
+hamburger.setAttribute('aria-controls','mobile-nav');hamburger.setAttribute('aria-expanded','false');hamburger.setAttribute('aria-label','Ouvrir le menu');hamburger.addEventListener('click',()=>{const open=mobileNav.classList.toggle('open');hamburger.classList.toggle('open',open);hamburger.setAttribute('aria-expanded',String(open));hamburger.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileNav();});
+function closeMobileNav(){hamburger.classList.remove('open');mobileNav.classList.remove('open');hamburger.setAttribute('aria-expanded','false');hamburger.setAttribute('aria-label','Ouvrir le menu');}
 
 /* ══ NAV ACTIVE ══ */
 window.addEventListener('scroll',()=>{
@@ -1171,12 +1127,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
 /* ══ FORM ══ */
 document.getElementById('contact-form').addEventListener('submit',function(e){
-  e.preventDefault();
-  const btn=this.querySelector('.form-submit');
-  btn.innerHTML='<i class="ri-check-double-line"></i> Envoyé !';btn.style.background='#16a34a';
-  setTimeout(()=>{btn.innerHTML='<i class="ri-send-plane-fill"></i> Envoyer';btn.style.background='';this.reset();},3000);
+ e.preventDefault();const fields=this.querySelectorAll('input,textarea');
+ const subject=fields[2].value.trim()||'Contact depuis le portfolio';
+ const body='Nom : '+fields[0].value+'\nEmail : '+fields[1].value+'\n\n'+fields[3].value;
+ window.location.href='mailto:sarakhinourelhouda@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+ document.getElementById('contact-status').textContent='Votre application email va s’ouvrir. Vérifiez le message puis envoyez-le depuis votre messagerie.';
 });
-
 /* ══ HOVER parallax on hero photo ══ */
 const heroVisual=document.querySelector('.hero-visual');
 if(heroVisual){
