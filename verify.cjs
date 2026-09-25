@@ -19,7 +19,7 @@ assert.deepEqual([...html.matchAll(/data-group="([^"]+)"/g)].map(m=>m[1]), ['dev
 assert(!/class="proj-link[^"]*todo-link/.test(html));
 for (const url of ['https://housalstudio.vercel.app/','https://rz-concept-website.vercel.app/','https://www.tamraghtscooter.com/']) assert(html.includes(url));
 const types = [...html.matchAll(/class="proj-card[^>]+data-type="([^"]+)"/g)].map(m=>m[1]);
-assert.equal(types.length,23);
+assert.equal(types.length,24);
 assert.deepEqual(types.slice(0,3),['dev','dev','dev']);
 const groups=['dev','design','data'].map(type=>({dataset:{group:type},hidden:false}));
 const buttons=['all','dev','design','data'].map(type=>({dataset:{filter:type},classList:{toggle(){}},setAttribute(){}}));
@@ -31,7 +31,7 @@ vm.createContext(context);vm.runInContext(filter,context);
 for (const type of ['data','dev','design','all','dev','all']) {
   context.filterProjects(type);
   groups.forEach(g=>assert.equal(g.hidden,type!=='all'&&g.dataset.group!==type));
-  assert(status.textContent.startsWith(String(type==='all'?23:types.filter(t=>t===type).length)));
+  assert(status.textContent.startsWith(String(type==='all'?24:types.filter(t=>t===type).length)));
 }
 let submit;
 const fields=[{value:'Nour'},{value:'nour@example.com'},{value:'Projet & détails'},{value:'Bonjour\nMon projet'}];
@@ -42,3 +42,5 @@ assert(formContext.window.location.href.startsWith('mailto:sarakhinourelhouda@gm
 assert(formContext.window.location.href.includes(encodeURIComponent('Projet & détails')));
 assert(!status.textContent.includes('Envoyé'));
 console.log('PASS: local files/anchors, JavaScript syntax, project order, repeated filtering and honest email handoff.');
+
+assert(html.includes('href="dar-limon.html"'));

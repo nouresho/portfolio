@@ -21,3 +21,5 @@ Le formulaire prépare un email dans la messagerie du visiteur via `mailto:`. Il
 Exécuter `node verify.cjs` depuis le dossier du site. Le contrôle couvre les fichiers locaux, ancres, syntaxe JavaScript, ordre des catégories, changements rapides de filtre et préparation du mail.
 
 Les trois sites publics ont répondu HTTP 200 lors du contrôle. Les rapports Power BI peuvent demander une connexion et des autorisations ; leur accès privé n’a pas été validé. La vérification visuelle complète sur navigateur reste à faire.
+
+Dar Limon : logo de profil et cinq visuels importés de la page Instagram fournie, le 25 septembre 2026. Images locales pour éviter les liens CDN expirants. Quatre publications et un aperçu global sont présentés, avec liens vers les publications sources. Carte de visite mentionnée parmi les livrables selon la propriétaire ; fichier original non fourni.
