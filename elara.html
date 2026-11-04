@@ -8,10 +8,10 @@
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 <style>
 :root{
-  --tan:#F2C79A; --maroon:#FF5C00; --maroon2:#CC4A00; --alabaster:#ECE9F5;
+  --tan:#F4EFE6; --maroon:#1E33E6; --maroon2:#1428C2; --alabaster:#ECE9F5;
   --lightblue:#4D6FE8; --midnight:#0A1150; --midnight2:#060A33;
-  --linen:#F2C79A; --tang:#FF5C00; --tang2:#CC4A00; --choco:#0A1150; --choco2:#060A33;
-  --sky:#4D6FE8; --gold:#F2C79A;
+  --linen:#F4EFE6; --tang:#9DB8FF; --tang2:#1428C2; --choco:#0A1150; --choco2:#060A33;
+  --sky:#4D6FE8; --gold:#F4EFE6;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -47,8 +47,8 @@ header{padding:26px 0;border-bottom:1px solid rgba(242,199,154,.12)}
 .gallery-item.big{grid-column:span 2;aspect-ratio:16/9}
 @media (max-width:700px){.gallery-item.big{grid-column:span 1;aspect-ratio:4/3}.meta-grid{grid-template-columns:1fr;gap:32px}.wrap{padding:0 22px}}
 footer{padding:50px 0 70px;border-top:1px solid rgba(242,199,154,.12);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--tang);color:#fff;padding:13px 28px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .2s,box-shadow .3s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 100%,10px 100%)}
-.btn-primary:hover{background:var(--tang2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,92,0,.4)}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:#1E33E6;color:#fff;padding:13px 28px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .2s,box-shadow .3s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 100%,10px 100%)}
+.btn-primary:hover{background:var(--tang2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(30,51,230,.45)}
 .foot-note{font-size:12px;opacity:.5;letter-spacing:.05em}
 </style>
 </head>
@@ -93,13 +93,13 @@ footer{padding:50px 0 70px;border-top:1px solid rgba(242,199,154,.12);display:fl
 
   <h3 class="gallery-title">Galerie</h3>
   <div class="gallery">
-    <div class="gallery-item big"><img src="images/ELARA/1.png" alt="ELARA — visuel 1"></div>
-    <div class="gallery-item "><img src="images/ELARA/2.png" alt="ELARA — visuel 2"></div>
-    <div class="gallery-item "><img src="images/ELARA/3.png" alt="ELARA — visuel 3"></div>
-    <div class="gallery-item "><img src="images/ELARA/logo.png" alt="ELARA — visuel 4"></div>
-    <div class="gallery-item"><img src="images/ELARA/logopic.png" alt="ELARA — visuel 5"></div>
-    <div class="gallery-item"><img src="images/ELARA/packaging.png" alt="ELARA — visuel 6"></div>
-    <div class="gallery-item"><img src="images/ELARA/postt.png" alt="ELARA — visuel 7"></div>
+    <div class="gallery-item big"><img loading="lazy" src="images/ELARA/1.png" alt="ELARA — visuel 1"></div>
+    <div class="gallery-item "><img loading="lazy" src="images/ELARA/2.png" alt="ELARA — visuel 2"></div>
+    <div class="gallery-item "><img loading="lazy" src="images/ELARA/3.png" alt="ELARA — visuel 3"></div>
+    <div class="gallery-item "><img loading="lazy" src="images/ELARA/logo.png" alt="ELARA — visuel 4"></div>
+    <div class="gallery-item"><img loading="lazy" src="images/ELARA/logopic.png" alt="ELARA — visuel 5"></div>
+    <div class="gallery-item"><img loading="lazy" src="images/ELARA/packaging.png" alt="ELARA — visuel 6"></div>
+    <div class="gallery-item"><img loading="lazy" src="images/ELARA/postt.png" alt="ELARA — visuel 7"></div>
   </div>
 
   <footer>

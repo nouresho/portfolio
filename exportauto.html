@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>ExportAuto — Application mobile — N.SARAKHI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Étude de cas : conception et développement de l'application mobile ExportAuto (React Native / Expo) — achat, lavage et vente de véhicules.">
+<meta name="theme-color" content="#0B0B0D">
+<meta property="og:title" content="ExportAuto — Application mobile">
+<meta property="og:image" content="images/exportauto/exportauto-hero.png">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:root{
+  --red:#E62E2D; --red2:#C42322; --black:#0B0B0D; --card:#141417; --line:rgba(255,255,255,.1);
+  --text:#fff; --muted:rgba(255,255,255,.66);
+  --tang:#9DB8FF; --midnight:#0A1150;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.7;font-weight:300;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 40px}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(11,11,13,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.12em}
+.logo em{color:var(--tang);font-style:normal}
+.back-link{display:inline-flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;transition:opacity .2s,transform .2s}
+.back-link:hover{opacity:1;transform:translateX(-4px)}
+
+/* hero */
+.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('images/exportauto/exportauto-hero.png') center/cover no-repeat;transform:scale(1.05);animation:heroZoom 14s ease-out forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.35) 0%,rgba(11,11,13,.55) 45%,var(--black) 100%)}
+.hero-in{position:relative;z-index:1;padding:120px 0 64px;width:100%}
+.hero-logo{height:56px;width:auto;margin-bottom:22px;display:block}
+.tag{display:inline-flex;align-items:center;gap:8px;background:rgba(230,46,45,.15);border:1px solid rgba(230,46,45,.45);padding:6px 16px;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#FF8A89;margin-bottom:20px}
+.title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8.5vw,120px);line-height:.88;letter-spacing:.01em;margin-bottom:22px}
+.title span{color:var(--red)}
+.lead{font-size:17px;color:rgba(255,255,255,.82);max-width:640px;margin-bottom:30px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s,box-shadow .3s,background .2s}
+.btn.main{background:var(--red);color:#fff}
+.btn.main:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(230,46,45,.4)}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.3)}
+.btn.ghost:hover{background:#fff;color:var(--black);transform:translateY(-2px)}
+
+/* chiffres */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:10px 0 90px;background:var(--card)}
+.fact{padding:26px 20px;border-right:1px solid var(--line)}
+.fact:last-child{border-right:none}
+.fact b{display:block;font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1;color:var(--red);letter-spacing:.02em}
+.fact span{font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+/* sections */
+.sec{margin-bottom:96px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--red)}
+.h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4.6vw,58px);line-height:.92;letter-spacing:.01em;margin-bottom:22px}
+.h2 span{color:var(--red)}
+.p{font-size:15px;color:var(--muted);max-width:720px}
+.p strong{color:#fff;font-weight:600}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+
+/* parcours */
+.flows{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.flow{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 26px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.flow:hover{border-color:var(--red);transform:translateY(-4px)}
+.flow-n{position:absolute;top:18px;right:22px;font-family:'Bebas Neue',sans-serif;font-size:42px;color:rgba(255,255,255,.06)}
+.flow i{font-size:26px;color:var(--red);display:block;margin-bottom:14px}
+.flow h3{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.03em;margin-bottom:10px}
+.flow ul{list-style:none}
+.flow li{font-size:13px;color:var(--muted);padding:5px 0 5px 18px;position:relative}
+.flow li::before{content:'';position:absolute;left:0;top:13px;width:8px;height:1.5px;background:var(--red)}
+
+/* écrans */
+.screens{display:flex;gap:22px;overflow-x:auto;padding:10px 4px 26px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--red) transparent}
+.screens::-webkit-scrollbar{height:4px}
+.screens::-webkit-scrollbar-thumb{background:var(--red);border-radius:4px}
+.screen{flex:0 0 auto;scroll-snap-align:start;text-align:center}
+.phone{width:220px;aspect-ratio:390/844;border-radius:32px;background:#000;padding:7px;box-shadow:0 24px 50px rgba(0,0,0,.55),0 0 0 1.5px rgba(255,255,255,.12);position:relative;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.phone::before{content:'';position:absolute;top:13px;left:50%;transform:translateX(-50%);width:58px;height:15px;border-radius:20px;background:#000;z-index:2}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:26px;display:block}
+.screen:hover .phone{transform:translateY(-8px)}
+.screen figcaption{margin-top:16px;font-size:12px;color:var(--muted);letter-spacing:.04em}
+.screen figcaption b{display:block;color:#fff;font-weight:600;font-size:13px}
+.hint{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,.4);margin-top:4px}
+
+/* fonctionnalités */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.feat{display:flex;gap:14px;align-items:flex-start;padding:20px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02)}
+.feat i{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:rgba(230,46,45,.12);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:18px}
+.feat b{display:block;font-size:14px;font-weight:600;margin-bottom:2px}
+.feat span{font-size:12.5px;color:var(--muted);line-height:1.6;display:block}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.stack-item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.stack-item small{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:6px}
+.stack-item b{font-size:14px;font-weight:600;display:block;margin-bottom:2px}
+.stack-item span{font-size:12px;color:var(--muted)}
+
+/* démarche */
+.steps{counter-reset:s;display:grid;gap:0;margin-top:30px;border-left:1.5px solid rgba(230,46,45,.35);padding-left:30px}
+.step{position:relative;padding:0 0 30px}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:-49px;top:0;width:36px;height:36px;border-radius:50%;background:var(--black);border:1.5px solid var(--red);color:var(--red);font-family:'JetBrains Mono',monospace;font-size:11px;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:16px;font-weight:700;margin-bottom:4px;padding-top:6px}
+.step p{font-size:14px;color:var(--muted);max-width:640px}
+
+.media-card{border-radius:20px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--card)}
+.media-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.media-card:hover img{transform:scale(1.04)}
+
+/* fin */
+.end{border-top:1px solid var(--line);padding:56px 0 70px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.end p{font-size:13px;color:var(--muted)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+a:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+@media (max-width:860px){
+  .wrap{padding:0 20px}
+  .hero{min-height:70vh}
+  .hero-in{padding:100px 0 46px}
+  .lead{font-size:15px}
+  .facts{grid-template-columns:repeat(2,1fr);margin-bottom:70px}
+  .fact:nth-child(2){border-right:none}
+  .fact:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .fact b{font-size:36px}
+  .flows,.features{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr;gap:30px}
+  .stack{grid-template-columns:1fr}
+  .phone{width:180px;border-radius:26px;padding:6px}
+  .phone img{border-radius:21px}
+  .sec{margin-bottom:72px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a href="index.html" class="logo">N<em>.</em>SARAKHI</a>
+    <a href="index.html#projects" class="back-link"><i class="ri-arrow-left-line"></i> Retour au portfolio</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg" role="img" aria-label="Voitures devant l'agence ExportAuto au coucher du soleil"></div>
+  <div class="wrap hero-in">
+    <img class="hero-logo" src="images/exportauto/exportauto-logo-white.png" alt="ExportAuto">
+    <span class="tag"><i class="ri-smartphone-line"></i> Dev Mobile · Android &amp; iOS · 2026</span>
+    <h1 class="title">L'automobile,<br><span>autrement.</span></h1>
+    <p class="lead">J'ai conçu et développé l'application mobile d'ExportAuto, agence spécialisée dans l'achat, la vente et le lavage de véhicules. Une seule app, trois parcours, connectée au site et à l'espace admin de l'agence.</p>
+    <div class="hero-cta">
+      <a href="#ecrans" class="btn main"><i class="ri-smartphone-line"></i> Voir les écrans</a>
+      <a href="https://exportauto.fr" class="btn ghost" target="_blank" rel="noopener"><i class="ri-global-line"></i> exportauto.fr</a>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <div class="facts reveal">
+    <div class="fact"><b>30+</b><span>écrans conçus et développés</span></div>
+    <div class="fact"><b>3</b><span>parcours : acheter, laver, vendre</span></div>
+    <div class="fact"><b>2</b><span>plateformes : Android &amp; iOS</span></div>
+    <div class="fact"><b>~13k</b><span>lignes de TypeScript</span></div>
+  </div>
+
+  <!-- Contexte -->
+  <section class="sec two-col">
+    <div class="reveal">
+      <div class="eyebrow">Le contexte</div>
+      <h2 class="h2">Un site web,<br><span>il fallait une app.</span></h2>
+      <p class="p">ExportAuto avait déjà un site et un espace d'administration. L'agence voulait que ses clients puissent <strong>tout faire depuis leur téléphone</strong> : trouver et réserver une voiture, prendre rendez-vous pour un lavage, ou proposer leur propre véhicule à la vente — et que chaque demande arrive directement dans l'admin existant.</p>
+      <p class="p" style="margin-top:14px">Le défi : réunir trois publics très différents dans une app <strong>simple dès le premier écran</strong>, tout en réutilisant les données et les prix du site.</p>
+    </div>
+    <div class="media-card reveal"><img src="images/exportauto/about-dealership.png" alt="Showroom ExportAuto" loading="lazy"></div>
+  </section>
+
+  <!-- Parcours -->
+  <section class="sec">
+    <div class="reveal">
+      <div class="eyebrow">La solution</div>
+      <h2 class="h2">Une question, <span>trois parcours</span></h2>
+      <p class="p">Dès l'ouverture, l'utilisateur répond à une seule question : « Que souhaitez-vous faire ? ». L'app l'emmène ensuite dans l'espace qui lui correspond, et il peut en changer à tout moment depuis les paramètres.</p>
+    </div>
+    <div class="flows">
+      <div class="flow reveal"><span class="flow-n">01</span><i class="ri-car-line"></i><h3>J'achète ma voiture</h3>
+        <ul><li>Catalogue avec recherche, filtres et marques</li><li>Fiche véhicule détaillée et favoris</li><li>Réservation et prise de contact avec l'agence</li><li>Suivi de mes réservations</li></ul></div>
+      <div class="flow reveal"><span class="flow-n">02</span><i class="ri-drop-line"></i><h3>Je lave ma voiture</h3>
+        <ul><li>4 formules, prix lus en direct sur le site</li><li>Choix de la date et du créneau horaire</li><li>Récapitulatif puis confirmation</li><li>Paiement sur place à l'agence</li></ul></div>
+      <div class="flow reveal"><span class="flow-n">03</span><i class="ri-hand-coin-line"></i><h3>Je vends ma voiture</h3>
+        <ul><li>Espace vendeur dédié avec ses propres onglets</li><li>Ajout d'un véhicule avec photos (appareil ou galerie)</li><li>Validation de l'annonce par l'agence</li><li>Notification push à chaque changement de statut</li></ul></div>
+    </div>
+  </section>
+
+  <!-- Écrans -->
+  <section class="sec" id="ecrans">
+    <div class="reveal">
+      <div class="eyebrow">L'interface</div>
+      <h2 class="h2">Les <span>écrans</span></h2>
+      <p class="p">Un thème sombre premium aux couleurs de la marque — noir profond et rouge ExportAuto — avec un mode clair automatique. Les cartes photo, le rouge en accent et la typographie grasse reprennent l'univers du logo.</p>
+      <p class="hint">← faites défiler →</p>
+    </div>
+    <div class="screens reveal">
+      <figure class="screen"><div class="phone"><img src="images/exportauto/screen-splash.jpg" alt="Écran de démarrage ExportAuto" loading="lazy"></div><figcaption><b>Démarrage</b>Splash aux couleurs de la marque</figcaption></figure>
+      <figure class="screen"><div class="phone"><img src="images/exportauto/screen-accueil.jpg" alt="Écran de choix : j'achète, je lave, je vends" loading="lazy"></div><figcaption><b>Premier écran</b>Choix du parcours</figcaption></figure>
+      <figure class="screen"><div class="phone"><img src="images/exportauto/screen-connexion.jpg" alt="Écran de connexion" loading="lazy"></div><figcaption><b>Connexion</b>Ou continuer sans compte</figcaption></figure>
+      <figure class="screen"><div class="phone"><img src="images/exportauto/screen-home.jpg" alt="Accueil de l'espace acheteur" loading="lazy"></div><figcaption><b>Accueil acheteur</b>Marques, catalogue, offres pro</figcaption></figure>
+      <figure class="screen"><div class="phone"><img src="images/exportauto/screen-lavage.jpg" alt="Service lavage et formules" loading="lazy"></div><figcaption><b>Service lavage</b>Les 4 formules</figcaption></figure>
+      <figure class="screen"><div class="phone"><img src="images/exportauto/screen-formule.jpg" alt="Choix de la formule de lavage" loading="lazy"></div><figcaption><b>Choix de formule</b>Détail et prix</figcaption></figure>
+      <figure class="screen"><div class="phone"><img src="images/exportauto/screen-creneau.jpg" alt="Réservation d'un créneau de lavage" loading="lazy"></div><figcaption><b>Créneau</b>Date et horaire du rendez-vous</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- Fonctionnalités -->
+  <section class="sec">
+    <div class="reveal">
+      <div class="eyebrow">Sous le capot</div>
+      <h2 class="h2">Fonctionnalités <span>clés</span></h2>
+    </div>
+    <div class="features">
+      <div class="feat reveal"><i class="ri-shield-user-line"></i><div><b>Comptes sécurisés</b><span>Inscription, connexion, mot de passe oublié ; session stockée de façon chiffrée sur le téléphone.</span></div></div>
+      <div class="feat reveal"><i class="ri-notification-3-line"></i><div><b>Notifications push</b><span>Le vendeur est prévenu dès que l'agence valide ou refuse son annonce.</span></div></div>
+      <div class="feat reveal"><i class="ri-camera-line"></i><div><b>Photos de véhicules</b><span>Prise de vue ou galerie, images compressées avant l'envoi.</span></div></div>
+      <div class="feat reveal"><i class="ri-links-line"></i><div><b>Connectée au site</b><span>Véhicules, prix des lavages et messages passent par l'API d'exportauto.fr.</span></div></div>
+      <div class="feat reveal"><i class="ri-message-3-line"></i><div><b>Messages à l'agence</b><span>Contact, demandes pro, aide et compte arrivent dans l'admin du site.</span></div></div>
+      <div class="feat reveal"><i class="ri-contrast-2-line"></i><div><b>Thème clair / sombre</b><span>L'app suit automatiquement le réglage du téléphone.</span></div></div>
+      <div class="feat reveal"><i class="ri-refresh-line"></i><div><b>Mises à jour à distance</b><span>Corrections envoyées sans repasser par le store (EAS Update).</span></div></div>
+      <div class="feat reveal"><i class="ri-heart-3-line"></i><div><b>Favoris &amp; réservations</b><span>L'acheteur retrouve ses véhicules préférés et suit ses demandes.</span></div></div>
+      <div class="feat reveal"><i class="ri-user-follow-line"></i><div><b>Sans compte possible</b><span>On peut découvrir le catalogue et les formules avant de s'inscrire.</span></div></div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="sec two-col">
+    <div class="reveal">
+      <div class="eyebrow">Technologies</div>
+      <h2 class="h2">Une seule base de code,<br><span>deux plateformes</span></h2>
+      <p class="p">L'app est écrite une seule fois en <strong>React Native + TypeScript</strong> avec <strong>Expo</strong>, puis compilée pour Android et iOS. Les builds (APK de test et version Play Store) et les mises à jour sont gérés dans le cloud avec <strong>EAS</strong>.</p>
+    </div>
+    <div class="stack reveal">
+      <div class="stack-item"><small>Framework</small><b>React Native · Expo</b><span>Une app native Android &amp; iOS</span></div>
+      <div class="stack-item"><small>Langage</small><b>TypeScript</b><span>Code typé, moins de bugs</span></div>
+      <div class="stack-item"><small>Navigation</small><b>Expo Router</b><span>Écrans organisés par fichiers, onglets</span></div>
+      <div class="stack-item"><small>Données</small><b>React Query · Axios</b><span>Cache, chargements et erreurs gérés</span></div>
+      <div class="stack-item"><small>Natif</small><b>Notifications · Caméra · SecureStore</b><span>Modules Expo officiels</span></div>
+      <div class="stack-item"><small>Déploiement</small><b>EAS Build · EAS Update</b><span>Builds cloud et mises à jour OTA</span></div>
+    </div>
+  </section>
+
+  <!-- Démarche -->
+  <section class="sec">
+    <div class="reveal">
+      <div class="eyebrow">Démarche</div>
+      <h2 class="h2">De l'idée <span>au Play Store</span></h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><h3>Comprendre les besoins de l'agence</h3><p>Analyse du site et de l'admin existants, définition des trois publics et de ce que chacun doit pouvoir faire.</p></div>
+      <div class="step"><h3>Concevoir les parcours et l'interface</h3><p>Écran d'accueil à une seule question, parcours courts, identité visuelle reprise du logo EA (noir et rouge).</p></div>
+      <div class="step"><h3>Développer et connecter à l'API</h3><p>Espaces acheteur et vendeur, réservations, lavage, envoi de photos, notifications, messages vers l'admin.</p></div>
+      <div class="step"><h3>Tester sur de vrais téléphones</h3><p>APK de test installé par QR code, données de test sur un serveur local, corrections au fil des retours.</p></div>
+      <div class="step"><h3>Préparer la publication</h3><p>Icônes et splash, identifiant d'app, build de production et mises à jour à distance configurées pour le Play Store.</p></div>
+    </div>
+  </section>
+
+  <div class="end">
+    <a href="index.html#projects" class="btn main"><i class="ri-arrow-left-line"></i> Tous les projets</a>
+    <p>Application mobile — ExportAuto · React Native / Expo · 2026</p>
+  </div>
+</main>
+
+<script>
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
