@@ -328,7 +328,6 @@ section{padding-bottom:110px;position:relative}
 .design .big{font-size:clamp(40px,5.6vw,84px);margin-bottom:24px}
 .collage{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:12px;aspect-ratio:3/2}
 .collage a{position:relative;border-radius:12px;overflow:hidden;display:block;background:var(--cream-2)}
-.collage a:first-child{grid-row:1/3}
 .collage img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .collage a:hover img{transform:scale(1.07)}
 .collage span{position:absolute;left:10px;bottom:10px;z-index:2;background:var(--cream);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 10px;border-radius:100px;display:inline-flex;align-items:center;gap:5px;transform:translateY(6px);opacity:0;transition:all .35s var(--ease)}
@@ -461,7 +460,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .badge{display:none}
   .hn{font-size:clamp(38px,12vw,60px)}
   .collage{aspect-ratio:auto;grid-template-rows:repeat(3,140px);grid-template-columns:repeat(2,1fr)}
-  .collage a:first-child{grid-row:auto;grid-column:1/3}
   .about-stats b{font-size:36px}
   .form{padding:22px}
 }
@@ -707,8 +705,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <div class="proj-head reveal">
       <h2 class="big">Projets <span class="arrow">↘</span></h2>
       <div class="filters" role="group" aria-label="Filtrer les projets">
-        <button class="active" data-filter="all">Tous<sup>8</sup></button>
-        <button data-filter="web">Web<sup>6</sup></button>
+        <button class="active" data-filter="all">Tous<sup>10</sup></button>
+        <button data-filter="web">Web<sup>8</sup></button>
         <button data-filter="mobile">Mobile<sup>2</sup></button>
       </div>
     </div>
@@ -738,6 +736,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <h3><a href="housal.html">Housal Agency</a></h3>
         <p>Site de mon agence de branding : identité, portfolio, offres et formulaire de contact, développé en Next.js avec Supabase.</p>
         <div class="chips"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">Supabase</span><span class="chip">Branding</span></div>
+        <div class="proj-links"><a href="https://housalstudio.vercel.app/" target="_blank" rel="noopener"><i class="ri-global-line"></i> Voir le site</a></div>
+      </article>
+
+      <article class="proj reveal d1" data-type="web">
+        <div class="proj-img"><img src="images/thumbs/rz.jpg" alt="Site du studio créatif RZ Concept" loading="lazy"><span class="proj-go"><i class="ri-arrow-right-up-line"></i></span></div>
+        <div class="proj-meta"><span>Site web · Studio créatif</span><span>2026</span></div>
+        <h3><a href="rz-concept.html">RZ Concept</a></h3>
+        <p>Site d'un studio créatif à Agadir : espaces, reels Instagram, visite 360° à venir et interface multilingue français / anglais / arabe.</p>
+        <div class="chips"><span class="chip">HTML / CSS</span><span class="chip">JavaScript</span><span class="chip">FR · EN · AR</span></div>
+        <div class="proj-links"><a href="https://rz-concept-website.vercel.app/" target="_blank" rel="noopener"><i class="ri-global-line"></i> Voir le site</a></div>
+      </article>
+
+      <article class="proj reveal" data-type="web">
+        <div class="proj-img"><img src="images/thumbs/eco.jpg" alt="Site EcoKephyra, location de scooters électriques" loading="lazy"><span class="proj-go"><i class="ri-arrow-right-up-line"></i></span></div>
+        <div class="proj-meta"><span>Site web · Location de scooters</span><span>2026</span></div>
+        <h3><a href="ecokephyra.html">EcoKephyra</a></h3>
+        <p>Site de location de scooters électriques à Tamraght : disponibilités, tarifs, storytelling et contact direct par WhatsApp.</p>
+        <div class="chips"><span class="chip">Site web</span><span class="chip">Responsive</span><span class="chip">UX</span></div>
+        <div class="proj-links"><a href="https://www.tamraghtscooter.com/" target="_blank" rel="noopener"><i class="ri-global-line"></i> Voir le site</a></div>
       </article>
 
       <article class="proj reveal d1" data-type="web">
@@ -821,6 +838,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <a href="flourlab.html"><img src="images/thumbs/flourlab.jpg" alt="Flour Lab — identité de boulangerie" loading="lazy"><span>Flour Lab <i class="ri-arrow-right-up-line"></i></span></a>
         <a href="melto.html"><img src="images/thumbs/melto.jpg" alt="Melto — identité de cookies" loading="lazy"><span>Melto <i class="ri-arrow-right-up-line"></i></span></a>
         <a href="northafricasurf.html"><img src="images/thumbs/surf.jpg" alt="North Africa Surf — identité surf" loading="lazy"><span>N. Africa Surf <i class="ri-arrow-right-up-line"></i></span></a>
+        <a href="dar-limon.html"><img src="images/dar-limon/overview.jpg" alt="Dar Limon — logo et publications Instagram" loading="lazy"><span>Dar Limon <i class="ri-arrow-right-up-line"></i></span></a>
       </div>
     </div>
   </div>
