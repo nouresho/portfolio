@@ -4,7 +4,7 @@ Site statique, sans compilation. Entrée : `index.html`.
 
 ## Organisation des projets
 
-Profil visé : développeuse web & mobile. Ordre de la page : intro → accueil → à propos → expériences → stack → projet phare ExportAuto (`exportauto.html`) → projets web & mobile (filtre Tous / Web / Mobile) → data → design → contact.
+Profil visé : développeuse web & mobile. Ordre de la page : intro → accueil → à propos → stack → projet phare ExportAuto (`exportauto.html`) → projets web & mobile (filtre Tous / Web / Mobile) → data → design → contact.
 
 Sites publics, chacun avec sa page de présentation :
 

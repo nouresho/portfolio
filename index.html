@@ -196,25 +196,6 @@ section{padding-bottom:110px;position:relative}
 .devices:hover .phone-mini{transform:rotate(2deg) translateY(-10px)}
 
 /* ═══════════════════════════════════════
-   03 — PARCOURS (crème)
-═══════════════════════════════════════ */
-.xp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:44px;flex-wrap:wrap}
-.xp-cols{display:grid;grid-template-columns:1.5fr 1fr;gap:60px}
-.xp-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
-.xp{display:grid;grid-template-columns:34px 1fr;gap:6px 14px;padding:26px 0;border-bottom:1px solid var(--line-d)}
-.xp>i{font-size:22px;color:var(--blue);grid-row:1/4;transition:transform .35s var(--ease)}
-.xp:hover>i{transform:translate(4px,4px)}
-.xp h3{font-family:'Archivo Black',sans-serif;font-size:19px;letter-spacing:.005em;text-transform:uppercase;line-height:1.15}
-.xp .where{font-size:13px;opacity:.7;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.xp .when{font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--navy);color:var(--cream);padding:3px 9px;border-radius:100px}
-.xp ul{list-style:none;margin-top:8px}
-.xp li{font-size:14px;line-height:1.65;opacity:.85;padding-left:16px;position:relative;margin-bottom:3px}
-.xp li::before{content:'';position:absolute;left:0;top:11px;width:7px;height:1.5px;background:var(--blue)}
-.edu{padding:22px 0;border-bottom:1px solid var(--line-d)}
-.edu h4{font-size:15px;font-weight:700;margin-bottom:3px}
-.edu p{font-size:13px;opacity:.7}
-
-/* ═══════════════════════════════════════
    04 — COMPÉTENCES (nuit)
 ═══════════════════════════════════════ */
 .skills-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:50px;flex-wrap:wrap}
@@ -435,7 +416,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(2){border-right:none}
   .stat:nth-child(-n+2){border-bottom:1px solid var(--line-d)}
-  .about-grid,.xp-cols,.ea-grid,.data-head,.design-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .about-grid,.ea-grid,.data-head,.design-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
   .devices{height:360px;max-width:520px}
   .phone-mini{width:150px}
   .skills-bonus{grid-template-columns:1fr}
@@ -498,7 +479,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <nav aria-label="Navigation principale">
       <a href="#top" class="active">Accueil</a>
       <a href="#about">À propos</a>
-      <a href="#parcours">Parcours</a>
       <a href="#exportauto">ExportAuto</a>
       <a href="#projects">Projets</a>
       <a href="#contact">Contact</a>
@@ -509,7 +489,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </header>
 <div class="mobile-nav" id="mobile-nav">
   <a href="#about">À propos <i class="ri-arrow-right-down-line"></i></a>
-  <a href="#parcours">Parcours <i class="ri-arrow-right-down-line"></i></a>
   <a href="#exportauto">App ExportAuto <i class="ri-arrow-right-down-line"></i></a>
   <a href="#projects">Projets <i class="ri-arrow-right-down-line"></i></a>
   <a href="#contact">Contact <i class="ri-arrow-right-down-line"></i></a>
@@ -594,49 +573,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <div class="devices reveal d1" aria-hidden="true">
         <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="images/thumbs/housal.jpg" alt="" loading="lazy"></div>
         <div class="phone-mini"><img src="images/exportauto/screen-accueil.jpg" alt="" loading="lazy"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════ 03 — PARCOURS ══════ -->
-<section id="parcours" class="sec-light">
-  <div class="container">
-    <div class="meta"><span>Creative portfolio</span><span>2026</span></div>
-    <div class="xp-head reveal">
-      <h2 class="big">Expériences</h2>
-      <p class="lead" style="max-width:380px">Du développement en agence à la livraison d'une app mobile complète.</p>
-    </div>
-    <div class="xp-cols">
-      <div>
-        <div class="xp-label reveal">Expériences professionnelles</div>
-        <article class="xp reveal">
-          <i class="ri-arrow-right-down-line"></i>
-          <h3>Développeuse web full stack</h3>
-          <div class="where">Digilion Agency · Agadir <span class="when">Avr. – Juin 2025</span></div>
-          <ul>
-            <li>Plateforme SaaS de rendez-vous : authentification JWT, gestion des rôles, synchronisation Google Calendar.</li>
-            <li>Paiement avec facturation automatique et rappels par e-mail / SMS.</li>
-            <li>Optimisation (requêtes SQL, cache Redis) et mise en production avec CI/CD.</li>
-          </ul>
-        </article>
-        <article class="xp reveal">
-          <i class="ri-arrow-right-down-line"></i>
-          <h3>Développeuse web full stack</h3>
-          <div class="where">WeHelp · Meknès <span class="when">Juin – Août 2024</span></div>
-          <ul>
-            <li>Site e-commerce en React.js avec une API REST Node.js / Express.</li>
-            <li>Comptes, panier, suivi des commandes et messagerie client ↔ admin.</li>
-            <li>Sécurité (bcrypt, validation, XSS/CSRF) et paiement Stripe / PayPal, en méthode agile.</li>
-          </ul>
-        </article>
-      </div>
-      <div>
-        <div class="xp-label reveal">Formation &amp; certification</div>
-        <div class="edu reveal"><h4>DUT Développement web et multimédia</h4><p>ESTM · 2023 – 2025</p></div>
-        <div class="edu reveal"><h4>Formation Data Analyst</h4><p>Simplon Maghreb · 2026</p></div>
-        <div class="edu reveal"><h4>Microsoft Power BI Data Analyst (PL-300)</h4><p>Microsoft · 2026</p></div>
-        <div class="edu reveal"><h4>Langues</h4><p>Français C1 · Anglais B2</p></div>
       </div>
     </div>
   </div>
@@ -757,11 +693,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       </article>
 
       <article class="proj reveal" data-type="web">
-        <div class="proj-img"><img src="images/thumbs/eco.jpg" alt="Site EcoKephyra, location de scooters électriques" loading="lazy"><span class="proj-go"><i class="ri-arrow-right-up-line"></i></span></div>
+        <div class="proj-img"><img src="images/thumbs/eco-phone.jpg" alt="Écrans mobiles du site EcoKephyra, location de scooters électriques" loading="lazy"><span class="proj-go"><i class="ri-arrow-right-up-line"></i></span></div>
         <div class="proj-meta"><span>Site web · Location de scooters</span><span>2026</span></div>
         <h3><a href="ecokephyra.html">EcoKephyra</a></h3>
-        <p>Site de location de scooters électriques à Tamraght : disponibilités, tarifs, storytelling et contact direct par WhatsApp.</p>
-        <div class="chips"><span class="chip">Site web</span><span class="chip">Responsive</span><span class="chip">UX</span></div>
+        <p>Site mobile-first de location de scooters électriques à Tamraght : réservation en ligne avec paiement Stripe, FAQ, avis clients et contact direct par WhatsApp.</p>
+        <div class="chips"><span class="chip">Mobile-first</span><span class="chip">Stripe</span><span class="chip">WhatsApp</span><span class="chip">UX</span></div>
         <div class="proj-links"><a href="https://www.tamraghtscooter.com/" target="_blank" rel="noopener"><i class="ri-global-line"></i> Voir le site</a></div>
       </article>
 
