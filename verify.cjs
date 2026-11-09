@@ -22,7 +22,7 @@ for (const file of files) {
 
 // 2. Sites publics et projets attendus sur la page d'accueil
 for (const url of ['https://housalstudio.vercel.app/', 'https://rz-concept-website.vercel.app/', 'https://www.tamraghtscooter.com/']) assert(html.includes(url), `lien manquant ${url}`);
-for (const page of ['exportauto.html', 'rz-concept.html', 'ecokephyra.html', 'housal.html', 'dar-limon.html']) assert(html.includes(`href="${page}"`), `projet manquant ${page}`);
+for (const page of ['exportauto.html', 'oceanpalace.html','rz-concept.html', 'ecokephyra.html', 'housal.html', 'dar-limon.html']) assert(html.includes(`href="${page}"`), `projet manquant ${page}`);
 assert(!/todo-link|lien à venir/.test(html), 'bouton « à venir » restant');
 assert(!/freelance/i.test(html), 'mention freelance restante');
 
